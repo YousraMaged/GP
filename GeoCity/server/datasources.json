@@ -1,0 +1,12 @@
+{
+  "db": {
+    "host": "34.229.227.253",
+    "port": 37770,
+    "url": "mongodb://dbadmin:dbadmin@ds237770.mlab.com:37770/geocity-dev",
+    "database": "geocity-dev",
+    "password": "dbadmin",
+    "name": "db",
+    "user": "dbadmin",
+    "connector": "mongodb"
+  }
+}

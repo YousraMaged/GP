@@ -1,0 +1,61 @@
+{
+  "name": "Parcel",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nationalID": {
+      "type": "number",
+      "required": true
+    },
+    "location": {
+      "type": "object",
+      "required": true
+    },
+    "SN": {
+      "type": "string",
+      "required": true
+    },
+    "landuse": {
+      "type": "string"
+    },
+    "status": {
+      "type": "boolean"
+    },
+    "area": {
+      "type": "number"
+    },
+    "floors": {
+      "type": "number"
+    },
+    "district": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "documents": {
+      "type": "hasMany",
+      "model": "Document",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "requests": {
+      "type": "hasMany",
+      "model": "Request",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Bus",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "number": {
+      "type": "string",
+      "required": true
+    },
+    "Path": {
+      "type": [
+        "string"
+      ],
+      "required": true
+    },
+    "StartPoint": {
+      "type": "string"
+    },
+    "EndPoint": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
