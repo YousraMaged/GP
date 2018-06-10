@@ -9,7 +9,7 @@ export class MapService {
     }
 
     getResult(){
-        return this.http.get('http://localhost:8080/geoserver/earth/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=earth:countries&maxFeatures=50&outputFormat=application%2Fjson').map(res => res );
+        return this.http.get('http://localhost:8080/geoserver/Geocity/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Geocity:GIS_Cad_Data&maxFeatures=95000&outputFormat=application%2Fjson').map(res => res );
     }
 
 
