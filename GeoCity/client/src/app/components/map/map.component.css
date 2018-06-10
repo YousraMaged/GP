@@ -1,2 +1,44 @@
 #map {
-    height: 590px;}
+    height: 591px;
+    padding: 0;
+    margin: 0;
+}
+main
+{
+    padding: 0;
+    margin: 0;
+}
+
+aside, nav, nav ul
+{
+    background-color: #F2EEE2 !important;
+}
+aside
+{
+    height: 591px;
+}
+nav, aside
+{
+    padding: 5px !important;
+    /*margin: 0 !important;*/
+}
+#searchinput
+{
+    width: 100% !important;
+}
+#exampleCheck1
+{
+    width: 10% !important;
+}
+label
+{
+    color: #0F1626 !important;
+}
+.list-group-item
+{
+    background-color: transparent !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 0;
+    padding-right: 0;
+}

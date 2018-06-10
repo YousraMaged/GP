@@ -27,7 +27,7 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     console.log("init");
-    this.Map = leaflet.map('map').setView([30.04, 31.23], 16);
+    this.Map = leaflet.map('map').setView([30.142833, 31.626871], 13);
     this.BaseMap = leaflet.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(this.Map);
     this.Layer = leaflet.geoJson(this.Result).addTo(this.Map);
   }

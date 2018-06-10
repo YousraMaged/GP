@@ -9,6 +9,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { MapComponent } from './components/map/map.component';
 import { MapService } from './services/map.service';
+import { ReportsComponent } from './components/reports/reports.component';
+import { RequestsComponent } from './components/requests/requests.component';
 
 const appRoutes: Routes = [
   {path:'', component:HomeComponent},
@@ -20,7 +22,9 @@ const appRoutes: Routes = [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    MapComponent
+    MapComponent,
+    ReportsComponent,
+    RequestsComponent
   ],
   imports: [
     BrowserModule,

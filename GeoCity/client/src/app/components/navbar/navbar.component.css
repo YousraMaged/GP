@@ -2,6 +2,16 @@
 {
     font-size: 28px;
 }
-li{
+li
+{
     padding: 0px 11px 0px 11px;
+}
+.nav-link
+{
+    color: white !important;
+}
+.active .nav-link
+{
+    color: gainsboro !important;
+    font-size: 17px;
 }
