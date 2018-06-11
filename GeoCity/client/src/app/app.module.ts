@@ -11,10 +11,13 @@ import { MapComponent } from './components/map/map.component';
 import { MapService } from './services/map.service';
 import { ReportsComponent } from './components/reports/reports.component';
 import { RequestsComponent } from './components/requests/requests.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { BusComponent } from './components/bus/bus.component';
 
 const appRoutes: Routes = [
   {path:'', component:HomeComponent},
-  {path:'map', component:MapComponent}
+  {path:'map', component:MapComponent},
+  {path:'transportation', component:BusComponent}
 ]
 
 @NgModule({
@@ -24,7 +27,9 @@ const appRoutes: Routes = [
     HomeComponent,
     MapComponent,
     ReportsComponent,
-    RequestsComponent
+    RequestsComponent,
+    FooterComponent,
+    BusComponent
   ],
   imports: [
     BrowserModule,

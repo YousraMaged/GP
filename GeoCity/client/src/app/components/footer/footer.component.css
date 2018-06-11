@@ -1,0 +1,28 @@
+.dorne-footer-area {
+    padding: 0px 35px;
+    border-top: 1px solid #bec0cc;
+    background-color: rgba(14, 2, 35, 0.9);
+    color: #fff; 
+}
+.footer-text p {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+.copyRight{
+    padding-left: 204px;
+    margin-top: 50px;
+    padding-top: 60px;
+}
+
+.ContactUs  {
+    margin-bottom: 0px;
+}
+
+.right{
+    float: right
+
+}
+.left{
+    float: left
+}

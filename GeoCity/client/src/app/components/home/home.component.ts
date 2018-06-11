@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MapService } from '../../services/map.service';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { 
+  Result: any;
+
+  constructor(public mapService:MapService) { 
+    
+
+    this.mapService.getResult().subscribe(res => {
+      console.log(res.json());
+      this.Result = res.json();
+      console.log(this.Result.features);
+    });
 
   }
 
   ngOnInit() {
   }
-
+  
 }
