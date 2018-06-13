@@ -1,0 +1,49 @@
+.card
+{
+    border-radius: 0;
+}
+#header
+{
+    text-align: center;
+    color: white;
+    padding: 15px;
+    font-size: 30px;
+}
+.card-body
+{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 0;
+}
+input
+{
+    border-radius: 0px;
+}
+.btn
+{
+    width: 100%;
+    background-color: #0F1626;
+    color: white;
+}
+.btn:hover
+{
+    background-color: #35456b;
+}
+.form-check
+{
+    margin-left: 20px;
+}
+label.form-check-label 
+{
+    margin-right: 120px;
+}
+#rbt
+{
+    transition: all 2s ease 0.5s;
+}
+.container-fluid
+{
+    margin: 0;
+    padding: 0;
+    padding-bottom: 50px;
+}

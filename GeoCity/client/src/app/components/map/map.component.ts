@@ -12,24 +12,27 @@ export class MapComponent implements OnInit {
   Result: any;
   public Map: any;
   public BaseMap: any;
-  public Layer:any;
+  public Layer: any;
 
   constructor(public mapService:MapService) { 
-
-    console.log("Const");
-    this.mapService.getResult().subscribe(res => {
-      console.log(res.json());
-      this.Result = res.json();
-      console.log(this.Result.features);
-    });
-
   }
 
   ngOnInit() {
-    console.log("init");
     this.Map = leaflet.map('map').setView([30.142833, 31.626871], 13);
     this.BaseMap = leaflet.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(this.Map);
-    this.Layer = leaflet.geoJson(this.Result).addTo(this.Map);
+    this.addGeoJSON();
+  }
+
+  addGeoJSON()
+  {
+    this.mapService.getResult().subscribe(res => {
+      console.log(res.json());
+      this.Result = res.json();
+      //console.log(this.Result.features);
+      leaflet.geoJSON(this.Result).addTo(this.Map);
+      
+    }, err => console.log(err));
+
   }
 
 }

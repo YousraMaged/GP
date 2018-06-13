@@ -8,6 +8,9 @@
   "properties": {
     "IsResident": {
       "type": "boolean"
+    },
+    "NationalID": {
+      "type": "number"
     }
   },
   "validations": [],
@@ -22,5 +25,13 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "log": {
+      "accepts": [
+        {"arg": "messageId", "type": "number", "required": true},
+        {"arg": "options", "type": "object", "http": "optionsFromRequest"}
+      ],
+      "http": {"verb": "POST", "path": "/log/:messageId"}
+    }
+  }
 }
