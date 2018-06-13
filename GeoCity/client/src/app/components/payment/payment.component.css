@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.billing{
+    position: relative;
+}
+
+.triangle-up{
+	width: 0;
+	height: 0;
+	border-left: 145px solid transparent;
+	border-right: 0 solid transparent;
+    border-bottom: 450px solid white;
+    position: absolute;
+    top: 67px;
+    left: 623px;
+}
+
+.payment{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+div::after{
+    content: "";
+    width: 1px;
+    height: 80%;
+    background-color: #333;
+    position: absolute;
+    top: 5px;
+    right: 0px;
+}
+
+/* content: "";
+width: 20px;
+height: 82%;
+background-color: #333;
+position: absolute;
+top: 68px;
+right: 7px; 
+left: 623px;
+background-position: 0 -270px; */ 

@@ -1,29 +1,42 @@
+<div class="container-fluid">
+  <div class="col-12">
+    <carousel>
+      <slide>
+        <img [src]="image1" class="img-fluid col-12 image">
+      </slide>
+      <slide>
+        <img [src]="image2" class="img-fluid image">
+      </slide>
+      <slide>
+        <img [src]="image3" class="img-fluid image">
+      </slide>
+      <slide>
+        <img [src]="image4" class="img-fluid image">
+      </slide>
+    </carousel>
+  </div>
 
-<div class="col-12 col-md-8 col-lg-4">
-  <div class="container">
-    <!-- <div class="img"> -->
-    <!-- <ion-range-slider type="double" [min]="1" [max]="2" [step]="step" [from]="https://www.google.com.eg/search?rlz=1C1JZAP_enEG766EG766&biw=1707&bih=813&tbm=isch&sa=1&ei=Q1IdW7CPCIq7sQG3qI3ABw&q=streets&oq=streets&gs_l=img.3...6730.8413.0.8522.7.7.0.0.0.0.0.0..0.0....0...1c.1.64.img..7.0.0....0.Epj3mPhPSYE#imgrc=q5LCGP8bNPCjYM:" 
-    [to]="https://www.google.com.eg/search?rlz=1C1JZAP_enEG766EG766&biw=1707&bih=813&tbm=isch&sa=1&ei=Q1IdW7CPCIq7sQG3qI3ABw&q=streets&oq=streets&gs_l=img.3...6730.8413.0.8522.7.7.0.0.0.0.0.0..0.0....0...1c.1.64.img..7.0.0....0.Epj3mPhPSYE#imgdii=dVAsSTB1B9BvvM:&imgrc=q5LCGP8bNPCjYM:" (onFinish)="sliderChange($event)">
-    </ion-range-slider> -->
-    
-    <!-- </div> -->
-
-    <!-- Book A Table Widget -->
+  <!-- Book A Table Widget -->
+  <div class="col-6 col-lg-4 bus">
     <div class="book-a-table-widget mt-50">
       <h6>Going to</h6>
-      <form action="#" method="get">
-        <p class="origin">
-          <i class="fas fa-map-pin"></i> Origin </p>
+      <form novalidate #f ="ngForm" (ngSubmit)="onSubmit(f)">
+        <label class="origin">
+          <i class="fas fa-map-pin"></i> Origin </label>
         <div class="input-group input-group-lg">
-          <input type="text" class="form-control" aria-label="Large" placeholder="Where I am">
+          <input type="text" class="form-control placeholder" aria-label="Large" placeholder="Where I am" [(ngModel)]="user.origin" name="origin" #userOrigin="ngModel" required>
+          <div *ngIf="userOrigin.erros?.required && userOrigin.touched" class="alert alert-danger">Origin is required</div>
         </div>
-        <p class="origin">
-          <i class="fas fa-map-pin"></i> Destination </p>
+        <br/>
+        <label class="origin">
+          <i class="fas fa-map-pin"></i> Destination </label>
         <div class="input-group input-group-lg">
-          <input type="text" class="form-control" placeholder="Street">
+          <input type="text" class="form-control placeholder" placeholder="Station" [(ngModel)]="user.destination" name="destination" #userDestination="ngModel" required>
+          <div *ngIf="userDestination.erros?.required && userDestination.touched" class="alert alert-danger">Destination is required</div>
         </div>
-        <button type="submit" class="btn pull-right btn-light btn-lg search">
+        <button type="submit" class="btn pull-right btn-light btn-lg search placeholder">
           <i class="fa fa-search pr-2" aria-hidden="true"></i> Search</button>
       </form>
     </div>
   </div>
+</div>
