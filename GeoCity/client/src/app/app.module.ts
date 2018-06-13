@@ -4,20 +4,27 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
+import { MapService } from './services/map.service';
+import { AuthService } from './services/auth.service';
+import { NavbarService } from './services/navbar.service';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { MapComponent } from './components/map/map.component';
-import { MapService } from './services/map.service';
 import { ReportsComponent } from './components/reports/reports.component';
 import { RequestsComponent } from './components/requests/requests.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BusComponent } from './components/bus/bus.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const appRoutes: Routes = [
   {path:'', component:HomeComponent},
   {path:'map', component:MapComponent},
-  {path:'transportation', component:BusComponent}
+  {path:'transportation', component:BusComponent},
+  {path:'login', component:LoginComponent},
+  {path:'register', component:RegisterComponent}
 ]
 
 @NgModule({
@@ -29,7 +36,9 @@ const appRoutes: Routes = [
     ReportsComponent,
     RequestsComponent,
     FooterComponent,
-    BusComponent
+    BusComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +47,9 @@ const appRoutes: Routes = [
     FormsModule
   ],
   providers: [
-    MapService
+    MapService,
+    AuthService,
+    NavbarService
   ],
   bootstrap: [AppComponent]
 })

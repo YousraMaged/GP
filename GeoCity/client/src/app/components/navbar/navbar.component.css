@@ -10,8 +10,19 @@ li
 {
     color: white !important;
 }
-.active .nav-link
+.nav-link:hover
 {
     color: gainsboro !important;
-    font-size: 17px;
+}
+.dropdown-menu > a:hover {
+    background-color: #B4DBC0;
+    color: #0F1626;
+}
+.dropdown-menu
+{
+    background-color: #0F1626;
+}
+.dropdown-menu a
+{
+    color: white;
 }

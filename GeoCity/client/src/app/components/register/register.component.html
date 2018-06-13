@@ -1,0 +1,49 @@
+<div class="container-fluid" [ngStyle]="{'background-color':'#0F1626'}">
+  <h3 id="header">Client Sign Up Form</h3>
+  <div class="card col-4 offset-4">
+    <div class="card-body">
+      <div class="card-body">
+        <h5>Step One:</h5>
+        <form name="form" (ngSubmit)="register()" #f="ngForm" novalidate>
+          <div class="form-group">
+            <input type="text" class="form-control" name="name" placeholder="Your name" [(ngModel)]="user.name">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" name="email" placeholder="Email" [(ngModel)]="user.email">
+          </div>
+          <h5>Step Two:</h5>
+          <div class="form-group">
+            <input type="text" class="form-control" name="username" placeholder="User Name" [(ngModel)]="user.username">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="user.password">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" name="password-confirm" placeholder="Confirm Password">
+          </div>
+          <h5>Step Three:</h5>
+          <div class="form-group">
+            <input type="number" class="form-control" name="mobile" placeholder="Mobile Number" [(ngModel)]="user.mobile">
+          </div>
+          <div class="form-group">
+              <h6>Are you a resident of Al-Shorook City?</h6>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="isResident" value="true" (change)="rbtCheck()" [checked]="isResident">
+              <label class="form-check-label" for="isResident">
+                Yes
+              </label>
+              <input class="form-check-input" type="radio" [checked]="!isResident" name="exampleRadios" id="isNotResident" value="false" (change)="rbtCheck()">
+              <label class="form-check-label" for="isNotResident">
+                No
+              </label>
+            </div>
+          </div>
+          <div *ngIf="isResident" id="rbt" class="form-group">
+              <input type="number" class="form-control" name="nationalID" placeholder="National ID" [(ngModel)]="user.nationalID">
+            </div>
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

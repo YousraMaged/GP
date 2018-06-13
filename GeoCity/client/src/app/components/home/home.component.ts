@@ -8,20 +8,14 @@ import { MapService } from '../../services/map.service';
 })
 export class HomeComponent implements OnInit {
 
-  Result: any;
-
   constructor(public mapService:MapService) { 
     
-
-    this.mapService.getResult().subscribe(res => {
-      console.log(res.json());
-      this.Result = res.json();
-      console.log(this.Result.features);
-    });
-
   }
 
   ngOnInit() {
+
   }
+
+
   
 }
