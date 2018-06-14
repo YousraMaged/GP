@@ -28,16 +28,20 @@ export class LoginComponent implements OnInit {
     //this.Navbar.hide();
   }
 
-  login()
+  login({value,valid})
   {
-    console.log(this.user);
-    this.authService.login(this.user).subscribe(res => 
-      {
+    if(valid){
+      this.authService.login(value).subscribe(res => {
         console.log(res);
         console.log(localStorage.getItem('token'));
         console.log(localStorage.getItem('userID'));
-        this.router.navigate(['/']);
+        this.router.navigate(['/login']);
       });
+    }
+    else
+    {
+      console.log('Invalid');
+    }
   }
 
 
