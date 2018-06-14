@@ -1,3 +1,53 @@
-<p>
-  reports works!
-</p>
+<div class="row">
+  <div class="col-6">
+    <h4>1. Select location: </h4>
+  </div>
+  <div class="col-6">
+    <h4>2. Add details: </h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6"  id="left-container">
+    <div id="map">
+    </div>
+  </div>
+  <div class="col-6">
+    <div>
+
+      <div class="card">
+        <div class="card-body">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+            -- Choose report category
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+          <br>
+          <br>
+          <div>
+            <label for="exampleTextarea">Describe the problem in your words *</label>
+            <textarea class="form-control" id="exampleTextarea" rows="6"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h4>3. Submit report:</h4>
+      <div class="card">
+        <div class="card-body">
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="notify_check" (change)="toggle_notify()">
+            <label class="form-check-label" for="notify_check">Please notify me of any updates or changes in this issue</label>
+          </div>
+          <div *ngIf="notify" class="form-group">
+            <label for="email">Email address to be notified</label>
+            <input type="email" class="form-control" id="email">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
