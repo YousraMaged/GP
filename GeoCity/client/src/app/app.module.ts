@@ -27,7 +27,7 @@ const appRoutes: Routes = [
   {path:'', component:HomeComponent},
   {path:'map', component:MapComponent},
   {path:'transportation', component:BusComponent},
-  {path:'payment', component:PaymentComponent}
+  {path:'payment', component:PaymentComponent},
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent}
 ]
@@ -42,7 +42,7 @@ const appRoutes: Routes = [
     RequestsComponent,
     FooterComponent,
     BusComponent,
-    PaymentComponent
+    PaymentComponent,
     LoginComponent,
     RegisterComponent
   ],
@@ -55,7 +55,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     MapService,
-    BusService
+    BusService,
     AuthService,
     NavbarService
   ],

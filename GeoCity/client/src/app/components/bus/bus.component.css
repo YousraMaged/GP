@@ -5,7 +5,7 @@
 
 .image{
     position: relative;
-    height: 500px;
+    height: 550px;
     width: 100%;
     background-position: center center;
 }
@@ -49,7 +49,7 @@
 
 .book-a-table-widget {
     padding: 50px 30px;
-    padding-bottom: 130px;
+    padding-bottom: 98px;
     background-color: #304150;
 }
 
@@ -62,7 +62,7 @@
 .book-a-table-widget .custom-select {
     width: 100%;
     border: none;
-    border-radius: 0;
+    border-radius: 5px;
     margin-bottom: 30px;
     height: 50px;
     font-size: 14px;
@@ -72,6 +72,8 @@
 
 .search{
     background-color: white;
-    margin-top: 55px;
-    padding: 7px;
+    margin-top: 22px;
+    padding: 9px 22px;
+    margin-left: 4px;
 }
+

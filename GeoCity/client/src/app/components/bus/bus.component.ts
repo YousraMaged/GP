@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
 import { BusService } from '../../services/bus.service';
+
+const states = [];
 
 @Component({
   selector: 'app-bus',
@@ -21,6 +23,14 @@ export class BusComponent implements OnInit {
   }
   Route: any;
 
+ 
+  value: any = null;
+
+  selectChange(e)
+  {
+    this.value = e.target.value;
+  }
+
 
 
 
@@ -33,26 +43,30 @@ export class BusComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
-  onSubmit({ value, valid }: { value: any, valid: boolean }) {
-    if (!valid) {
-      console.log("not valid")
-    } else {
-      let origin = value.origin;
-      let destination = value.destination;
-      for (let i = 0; i < this.Route.length; i++) {
-        for (let j = 0; j < this.Route[i].Path.length; j++) {
-          if (origin == this.Route[i].Path[j] && destination == this.Route[i].Path[j]) {
-            console.log(this.Route[i].number)
-          } else {
-            console.log("false")
-          }
-        }
-      }
-      // console.log(origin)
-      // console.log(destination)
-    }
-  }
+
+
+
+  // onSubmit({ value, valid }: { value: any, valid: boolean }) {
+  //   if (!valid) {
+  //     console.log("not valid")
+  //   } else {
+  //     let origin = value.origin;
+  //     let destination = value.destination;
+  //     for (let i = 0; i < this.Route.length; i++) {
+  //       for (let j = 0; j < this.Route[i].Path.length; j++) {
+  //         if (origin == this.Route[i].Path[j] && destination == this.Route[i].Path[j]) {
+  //           console.log(this.Route[i].number)
+  //         } else {
+  //           console.log("false")
+  //         }
+  //       }
+  //     }
+  // console.log(origin)
+  // console.log(destination)
+  //   }
+  // }
+
 }
-

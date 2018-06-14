@@ -5,41 +5,84 @@
 
 .billing{
     position: relative;
+    margin-bottom: 20px;
+    height: 360px;
 }
 
 .triangle-up{
 	width: 0;
 	height: 0;
-	border-left: 145px solid transparent;
-	border-right: 0 solid transparent;
-    border-bottom: 450px solid white;
+	border-left: 153px solid transparent;
+	border-right: 10px solid transparent;
+    border-bottom: 361px solid white;
     position: absolute;
     top: 67px;
-    left: 623px;
-}
-
-.payment{
-    position: absolute;
-    top: 0px;
-    right: 0px;
+    left: 615px;
 }
 
 div::after{
     content: "";
     width: 1px;
     height: 80%;
-    background-color: #333;
     position: absolute;
     top: 5px;
     right: 0px;
 }
 
-/* content: "";
-width: 20px;
-height: 82%;
-background-color: #333;
-position: absolute;
-top: 68px;
-right: 7px; 
-left: 623px;
-background-position: 0 -270px; */ 
+.right{
+    float: right;
+    margin-right: 65px;
+}
+
+.left{
+    float: left;
+}
+
+.payment{
+    margin-top: 130px;
+    color: #868780;
+}
+
+.step{
+    color: #444;
+    line-height: 225%;
+    margin-left: -8px;
+}
+
+.list{
+    list-style: none;
+}
+
+.bullet{
+    color: #384782;
+    padding-right: 7px;
+}
+
+.active{
+    background-color: #304150;
+}
+
+.list-group-item{
+    height: 50px;
+    margin-left: 20px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.account{
+    margin-left: 150px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.info{
+    margin-left: 423px;
+}
+
+.paymentInfo{
+    margin-left: 150px;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
+}
+

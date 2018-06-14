@@ -1,9 +1,47 @@
 <div class="container-fluid">
-  <div class="col-12">
-    <img [src]="billing" class="img-fluid col-6 billing">
+  <img [src]="billing" class="img-fluid col-6 billing">
+  <div class="triangle-up"></div>
+  <div class="right">
+    <div class="text-justify payment">
+      <h2>Payment Service</h2>
+    </div>
+    <div class="text-justify">
+      <h5 class="step">Pay your bill in 4 easy steps</h5>
+    </div>
+    <div>
+      <ul class="list-group list-group-flush list">
+        <li>
+          <i class="fas fa-bullseye bullet"></i>login to your account.</li>
+        <li>
+          <i class="fas fa-bullseye bullet"></i>Select the utility.</li>
+        <li>
+          <i class="fas fa-bullseye bullet"></i>Enter your credit card details.</li>
+        <li>
+          <i class="fas fa-bullseye bullet"></i>You will see a confirmation message of successful or rejected payment.</li>
+      </ul>
+    </div>
   </div>
-  <div class="triangle-up col-6"></div>
-  <div class="payment">
-    <h2>Payment Service</h2>
+
+  <div class="list-group col-2 left">
+    <a href="/payment" class="list-group-item list-group-item-action active">Utility</a>
+    <a href="/payment" class="list-group-item list-group-item-action">Water Bill</a>
+    <a href="/payment" class="list-group-item list-group-item-action">Electricity Bill</a>
+    <a href="/payment" class="list-group-item list-group-item-action">Gas Bill</a>
+  </div>
+  <div class="col-10">
+    <form>
+      <div>
+        <label class="account"> Account Information</label>
+        <p class="info">Lorem ipsum dolor sit amet, an ceteros adipisci periculis eos. An iusto nostro per. Populo facilisis reprehendunt
+          in pri, tation offendit ei sed, ius cu deleniti omittantur. Sea alia stet doctus an, has an facilis commune invidunt,
+          et quot tincidunt mei.</p>
+      </div>
+      <div>
+          <label class="paymentInfo"> Payment Information</label>
+          <p class="info">Lorem ipsum dolor sit amet, an ceteros adipisci periculis eos. An iusto nostro per. Populo facilisis reprehendunt
+            in pri, tation offendit ei sed, ius cu deleniti omittantur. Sea alia stet doctus an, has an facilis commune invidunt,
+            et quot tincidunt mei.</p>
+        </div>
+    </form>
   </div>
 </div>
