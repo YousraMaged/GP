@@ -1,34 +1,35 @@
 <nav *ngIf="navbar.visible" class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #0F1626 !important;">
-  <a class="navbar-brand col-2" routerLink="#">GeoCity</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+  <a class="navbar-brand col-2" routerLink="/">GeoCity</a>
+  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
+  </button> -->
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="#">Home
+      <li routerLinkActive="active current" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" routerLink="/">Home
           <span class="sr-only"></span>
         </a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle dropdown-toggle-split" routerLink="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+        <a class="nav-link dropdown-toggle dropdown-toggle-split" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="true">
           Services
+          <i class="fa fa-angle-down" aria-hidden="true"></i>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" routerLink="/transportation">Transportation</a>
-          <a class="dropdown-item" routerLink="#">Payment</a>
-          <a class="dropdown-item" routerLink="#">Parcel Info</a>
+          <a class="dropdown-item" routerLink="/">Payment</a>
+          <a class="dropdown-item" routerLink="/">Parcel Info</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="#">Report a Problem</a>
+      <li routerLinkActive="active current" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
+        <a class="nav-link" routerLink="report">Report a Problem</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="#">Make a request</a>
+      <li routerLinkActive="active current" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
+        <a class="nav-link" routerLink="/request">Make a request</a>
       </li>
-      <li class="nav-item">
+      <li routerLinkActive="active current" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
         <a class="nav-link" routerLink="/map">Map</a>
       </li>
     </ul>

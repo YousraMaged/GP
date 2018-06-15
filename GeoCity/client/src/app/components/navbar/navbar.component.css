@@ -26,3 +26,13 @@ li
 {
     color: white;
 }
+.dropdown-toggle::after 
+{
+    /* content: "\f107";
+    font-family: FontAwesome; */
+    border: 0px;
+}
+.active.current
+{
+    font-weight: bold;
+}
