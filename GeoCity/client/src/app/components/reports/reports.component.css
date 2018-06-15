@@ -1,8 +1,13 @@
+@font-face
+{
+    font-family: FontAwesome;
+    src: url('../../../assets/fonts/fontawesome-webfont.ttf');
+}
 #map
 {
     height: 500px;
     margin: 10px;
-    margin-top: 25px;
+    margin-top: 0px;
     margin-left: 35px;
 }
 #left-container
@@ -11,15 +16,13 @@
     box-shadow: 0px 1px 0px 0px rgba(0,0,0,.125);
     padding-right: 6px;
 }
-h4
+h5
 {
     margin-top: 15px;
-    margin-left: 15px;
-    margin-left: 35px;
+    margin-bottom: 15px;
 }
 .card
 {
-    margin-top: 25px;
     width: 90% !important;
 }
 #dropdownMenuButton
@@ -32,11 +35,15 @@ h4
 }
 .dropdown-menu
 {
-    width: 90%;
+    width: 93%;
+    padding: 0;
 }
 .dropdown-toggle::after 
 {
-    border: none;
+    content: "\f107";
+    font-family: FontAwesome;
+    margin-left: 320px; 
+    border: 0px;
 }
 .btn
 {
@@ -48,4 +55,28 @@ h4
 .btn:hover
 {
     background-color: #35456b;
+}
+.dropdown-menu > a:hover 
+{
+    background-color: #0F1626;
+    color: white;
+}
+.form-check-label {
+    padding-left: 0.1rem;
+    margin-bottom: 0;
+}
+form-check-label
+{
+    font-size: 15px;
+}
+.alert
+{
+    font-size: 13px;
+    padding: 10px;
+}
+label small
+{
+    color:#b12737;
+    font-size: 18px;
+    font-weight: bold;
 }

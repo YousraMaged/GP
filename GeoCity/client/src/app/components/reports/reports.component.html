@@ -1,53 +1,72 @@
 <div class="row">
   <div class="col-6">
-    <h4>1. Select location: </h4>
+    <h5 style="margin-left: 35px;">1. Select location: </h5>
   </div>
   <div class="col-6">
-    <h4>2. Add details: </h4>
+    <h5>2. Add details: </h5>
   </div>
 </div>
 <div class="row">
-  <div class="col-6"  id="left-container">
+  <div class="col-6" id="left-container">
     <div id="map">
     </div>
   </div>
   <div class="col-6">
-    <div>
-
-      <div class="card">
-        <div class="card-body">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-            -- Choose report category
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-          <br>
-          <br>
-          <div>
-            <label for="exampleTextarea">Describe the problem in your words *</label>
-            <textarea class="form-control" id="exampleTextarea" rows="6"></textarea>
+    <form name="form" (ngSubmit)="submitReport(f)" #f="ngForm" novalidate>
+      <div>
+        <div class="card">
+          <div class="card-body">
+            <select class="custom-select" name="category" [(ngModel)]="report.category" #category="ngModel" required>
+              <option [value]="0"> -- Choose report category </option>
+              <option [value]="1">Sewage</option>
+              <option [value]="2">Electricity</option>
+              <option [value]="3">Telephone</option>
+              <option [value]="4">Road</option>
+              <option [value]="5">Water</option>
+              <option [value]="6">Gas</option>
+            </select>
+            <br>
+            <br>
+            <div class="alert alert-danger" *ngIf=" category.value == 0 && category.touched">
+                Problem category is required
+            </div>
+            <div>
+              <div class="form-group">
+              <label for="description">Describe the problem in your words  <small>*</small></label>
+              <textarea type="text" class="form-control" id="description" name="description" [(ngModel)]="report.description" rows="6" #description="ngModel" required minlength="20"></textarea>
+            </div>
+            <div class="alert alert-danger" *ngIf=" description.errors?.required && description.touched">
+                Problem description is required
+            </div>
+            <div class="alert alert-danger" *ngIf=" description.errors?.minlength && description.touched">
+                Problem description should be at least 20 characters
+            </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div>
-      <h4>3. Submit report:</h4>
-      <div class="card">
-        <div class="card-body">
-          <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="notify_check" (change)="toggle_notify()">
-            <label class="form-check-label" for="notify_check">Please notify me of any updates or changes in this issue</label>
+      <div>
+        <h5>3. Submit report:</h5>
+        <div class="card">
+          <div class="card-body">
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="notify_check" (change)="toggle_notify()">
+              <label class="form-check-label" for="notify_check">Please notify me of any updates or changes in this issue</label>
+            </div>
+            <div [@Animation]='state' *ngIf="report.notify" class="form-group">
+              <label for="email"> Email address to be notified </label>
+              <input type="email" class="form-control" id="email" name="email" [(ngModel)]="report.email" #email="ngModel"  pattern="^(\+?\d{1,4}[\s-])?(?!0+\s+,?$)\d{10}\s*,?$">
+            </div>
+            <div class="alert alert-danger" *ngIf="notify && email.invalid && email.touched">
+                Problem category is required
+            </div>
+            <div id="flash">
+              <flash-messages></flash-messages>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
           </div>
-          <div *ngIf="notify" class="form-group">
-            <label for="email">Email address to be notified</label>
-            <input type="email" class="form-control" id="email">
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
         </div>
       </div>
-    </div>
+    </form>
   </div>
 </div>
