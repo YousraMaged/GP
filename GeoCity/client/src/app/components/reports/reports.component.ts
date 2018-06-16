@@ -31,7 +31,7 @@ export class ReportsComponent implements OnInit {
   ) {
     this.report = {
       notify: false,
-      category: '0',
+      category: '',
       description: null,
       clientId: null,
       email: null,
@@ -67,28 +67,6 @@ export class ReportsComponent implements OnInit {
     if (valid) {
       this.report.clientId = localStorage.getItem('userID');
       this.report.date = new Date(Date.now());
-      switch (this.report.category) {
-        case "1":
-          this.report.category = "Sewage";
-          break;
-        case "2":
-          this.report.category = "Electricity";
-          break;
-        case "3":
-          this.report.category = "Telephone";
-          break;
-        case "4":
-          this.report.category = "Road";
-          break;
-        case "5":
-          this.report.category = "Water";
-          break;
-        case "6":
-          this.report.category = "Gas";
-          break;
-        default:
-          this.report.category = null;
-      }
       console.log(this.report);
     }
     else{

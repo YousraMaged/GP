@@ -17,13 +17,13 @@
         <div class="card">
           <div class="card-body">
             <select class="custom-select" name="category" [(ngModel)]="report.category" #category="ngModel" required>
-              <option [value]="0"> -- Choose report category </option>
-              <option [value]="1">Sewage</option>
-              <option [value]="2">Electricity</option>
-              <option [value]="3">Telephone</option>
-              <option [value]="4">Road</option>
-              <option [value]="5">Water</option>
-              <option [value]="6">Gas</option>
+              <option value=""> -- Choose report category </option>
+              <option value="Sewage">Sewage</option>
+              <option value="Electricity">Electricity</option>
+              <option value="Telephone">Telephone</option>
+              <option value="Road">Road</option>
+              <option value="Water">Water</option>
+              <option value="Gas">Gas</option>
             </select>
             <br>
             <br>
@@ -48,7 +48,7 @@
       <div>
         <h5>3. Submit report:</h5>
         <div class="card">
-          <div class="card-body">
+          <div class="card-body expand">
             <div class="form-group form-check">
               <input type="checkbox" class="form-check-input" id="notify_check" (change)="toggle_notify()">
               <label class="form-check-label" for="notify_check">Please notify me of any updates or changes in this issue</label>

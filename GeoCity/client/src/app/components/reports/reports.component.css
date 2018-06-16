@@ -80,3 +80,7 @@ label small
     font-size: 18px;
     font-weight: bold;
 }
+.expand
+{
+    transition: all 600ms ease;
+}
