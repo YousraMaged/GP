@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.billing{
+    position: relative;
+    margin-bottom: 20px;
+    height: 360px;
+}
+
+.triangle-up{
+	width: 0;
+	height: 0;
+	border-left: 153px solid transparent;
+	border-right: 10px solid transparent;
+    border-bottom: 361px solid white;
+    position: absolute;
+    top: 67px;
+    left: 615px;
+}
+
+div::after{
+    content: "";
+    width: 1px;
+    height: 80%;
+    position: absolute;
+    top: 5px;
+    right: 0px;
+}
+
+.right{
+    float: right;
+    margin-right: 65px;
+}
+
+.left{
+    float: left;
+}
+
+.payment{
+    margin-top: 130px;
+    color: #868780;
+}
+
+.step{
+    color: #444;
+    line-height: 225%;
+    margin-left: -8px;
+}
+
+.list{
+    list-style: none;
+}
+
+.bullet{
+    color: #384782;
+    padding-right: 7px;
+}
+
+.active{
+    background-color: #304150;
+}
+
+.list-group-item{
+    height: 50px;
+    margin-left: 20px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.account{
+    margin-left: 150px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.info{
+    margin-left: 423px;
+}
+
+.paymentInfo{
+    margin-left: 150px;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
