@@ -16,7 +16,7 @@ import { BusComponent } from './components/bus/bus.component';
 import { ParcelinfoComponent } from './components/parcelinfo/parcelinfo.component';
 
 const appRoutes: Routes = [
-  {path:'', component:HomeComponent},
+  {path:'/', component:HomeComponent},
   {path:'map', component:MapComponent},
   {path:'transportation', component:BusComponent},
   {path:'requests',component:RequestsComponent},
