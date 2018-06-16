@@ -28,8 +28,7 @@ const appRoutes: Routes = [
   {path:'map', component:MapComponent},
   {path:'transportation', component:BusComponent},
   {path:'payment', component:PaymentComponent},
-  {path:'login', component:LoginComponent},
-  {path:'register', component:RegisterComponent}
+  {path:'login', component:LoginComponent}
 ]
 
 @NgModule({
