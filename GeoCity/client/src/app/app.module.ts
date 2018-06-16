@@ -14,7 +14,6 @@ import { RequestsComponent } from './components/requests/requests.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BusComponent } from './components/bus/bus.component';
 import { ParcelinfoComponent } from './components/parcelinfo/parcelinfo.component';
-import { DmnavbarComponent } from './components/dmnavbar/dmnavbar.component';
 
 const appRoutes: Routes = [
   {path:'', component:HomeComponent},
@@ -34,9 +33,7 @@ const appRoutes: Routes = [
     RequestsComponent,
     FooterComponent,
     BusComponent,
-    ParcelinfoComponent,
-    DmnavbarComponent,
-    
+    ParcelinfoComponent
   ],
   imports: [
     BrowserModule,
