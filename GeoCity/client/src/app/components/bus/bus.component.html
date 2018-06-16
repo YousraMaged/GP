@@ -35,75 +35,82 @@
           <div *ngIf="userDestination.erros?.required && userDestination.touched" class="alert alert-danger">Destination is required</div>
         </div> -->
 
-      <form action="#" method="get">
+      <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="form-group">
+          <label class="origin">
+            <i class="fas fa-map-pin"></i> Origin </label>
+          <select class="custom-select form-control" (change)="selectChange($event)" name="origin" [(ngModel)]="user.origin" #userOrigin="ngModel" required>
+            <option value="select" > -- Where I am </option>
+            <option *ngFor="let origin of origins" [value]="origin.name">{{origin.name}}</option>
+            <!-- <option>El-A'sher bus station</option>
+            <option>El-Garage</option>
+            <option>Alf Maskan</option>
+            <option>Masr El-Gdida</option>
+            <option>Hadaiq El-Qoba</option>
+            <option>Sheraton</option>
+            <option>Awl Makram</option>
+            <option>Awl Abbas</option>
+            <option>El-Abbasiya</option>
+            <option>Ramses</option>
+            <option>Tahrir</option>
+            <option>Badr City</option>
+            <option>New Heliopolis</option>
+            <option>Gesr El-Suez</option>
+            <option>El-Hegaz Square</option>
+            <option>Roxy</option>
+            <option>El-Abasya</option>
+            <option>El-Abbasiya</option>
+            <option>El-Geish Street</option>
+            <option>El-Mosky</option>
+            <option>El-Ataba</option>
+            <option>El-Ahly Club</option>
+            <option>Rabaa</option>
+            <option>Ahmed Helmy</option>
+            <option>Shoubra</option>
+            <option>El-Sayeda Aisha</option> -->
+          </select>
+          <span class="help-block" *ngIf="userOrigin.erros?.required && userOrigin.touched">Origin is required</span>
+        </div>
 
-        <label class="origin">
-          <i class="fas fa-map-pin"></i> Origin </label>
-        <select class="custom-select" (change)="selectChange($event)">
-          <option selected> -- Origin </option>
-          <option [value]="1">El-Sherouk first gate</option>
-          <option [value]="2">El-A'sher bus station</option>
-          <option [value]="3">El-Garage</option>
-          <option [value]="4">Alf Maskan</option>
-          <option [value]="5">Masr El-Gdida</option>
-          <option [value]="6">Hadaiq El-Qoba</option>
-          <option [value]="7">Sheraton</option>
-          <option [value]="8">Awl Makram</option>
-          <option [value]="9">Awl Abbas</option>
-          <option [value]="10">El-Abbasiya</option>
-          <option [value]="11">Ramses</option>
-          <option [value]="12">Tahrir</option>
-          <option [value]="13">Badr City</option>
-          <option [value]="14">New Heliopolis</option>
-          <option [value]="15">Gesr El-Suez</option>
-          <option [value]="16">El-Hegaz Square</option>
-          <option [value]="17">Roxy</option>
-          <option [value]="18">El-Abasya</option>
-          <option [value]="19">El-Abbasiya</option>
-          <option [value]="20">El-Geish Street</option>
-          <option [value]="21">El-Mosky</option>
-          <option [value]="22">El-Ataba</option>
-          <option [value]="23">El-Ahly Club</option>
-          <option [value]="24">Rabaa</option>
-          <option [value]="25">Ahmed Helmy</option>
-          <option [value]="26">Shoubra</option>
-          <option [value]="27">El-Sayeda Aisha</option>
-        </select>
-
-        <label class="origin">
-          <i class="fas fa-map-pin"></i> Destination </label>
-        <select class="custom-select" (change)="selectChange($event)">
-          <option selected> -- Destination </option>
-          <option [value]="1">El-Sherouk first gate</option>
-          <option [value]="2">El-A'sher bus station</option>
-          <option [value]="3">El-Garage</option>
-          <option [value]="4">Alf Maskan</option>
-          <option [value]="5">Masr El-Gdida</option>
-          <option [value]="6">Hadaiq El-Qoba</option>
-          <option [value]="7">Sheraton</option>
-          <option [value]="8">Awl Makram</option>
-          <option [value]="9">Awl Abbas</option>
-          <option [value]="10">El-Abbasiya</option>
-          <option [value]="11">Ramses</option>
-          <option [value]="12">Tahrir</option>
-          <option [value]="13">Badr City</option>
-          <option [value]="14">New Heliopolis</option>
-          <option [value]="15">Gesr El-Suez</option>
-          <option [value]="16">El-Hegaz Square</option>
-          <option [value]="17">Roxy</option>
-          <option [value]="18">El-Abasya</option>
-          <option [value]="19">El-Abbasiya</option>
-          <option [value]="20">El-Geish Street</option>
-          <option [value]="21">El-Mosky</option>
-          <option [value]="22">El-Ataba</option>
-          <option [value]="23">El-Ahly Club</option>
-          <option [value]="24">Rabaa</option>
-          <option [value]="25">Ahmed Helmy</option>
-          <option [value]="26">Shoubra</option>
-          <option [value]="27">El-Sayeda Aisha</option>
-        </select>
-        <button type="submit" class="btn pull-right btn-light btn-lg search placeholder">
-          <i class="fa fa-search pr-2" aria-hidden="true"></i> Search</button>
+        <div class="form-group">
+          <label class="origin">
+            <i class="fas fa-map-pin"></i> Destination </label>
+          <select class="custom-select" (change)="selectChange($event)">
+            <option selected [(ngModel)]="user.destination" name="destination" #userDestination="ngModel" required> -- Station </option>
+            <option>El-Sherouk first gate</option>
+            <option>El-A'sher bus station</option>
+            <option>El-Garage</option>
+            <option>Alf Maskan</option>
+            <option>Masr El-Gdida</option>
+            <option>Hadaiq El-Qoba</option>
+            <option>Sheraton</option>
+            <option>Awl Makram</option>
+            <option>Awl Abbas</option>
+            <option>El-Abbasiya</option>
+            <option>Ramses</option>
+            <option>Tahrir</option>
+            <option>Badr City</option>
+            <option>New Heliopolis</option>
+            <option>Gesr El-Suez</option>
+            <option>El-Hegaz Square</option>
+            <option>Roxy</option>
+            <option>El-Abasya</option>
+            <option>El-Abbasiya</option>
+            <option>El-Geish Street</option>
+            <option>El-Mosky</option>
+            <option>El-Ataba</option>
+            <option>El-Ahly Club</option>
+            <option>Rabaa</option>
+            <option>Ahmed Helmy</option>
+            <option>Shoubra</option>
+            <option>El-Sayeda Aisha</option>
+          </select>
+          <div *ngIf="userDestination.erros?.required && userDestination.touched" class="alert alert-danger">Destination is required</div>
+        </div>
+        <div>
+          <button type="submit" class="btn pull-right btn-light btn-lg search placeholder">
+            <i class="fa fa-search pr-2" aria-hidden="true"></i> Search</button>
+        </div>
       </form>
     </div>
   </div>
