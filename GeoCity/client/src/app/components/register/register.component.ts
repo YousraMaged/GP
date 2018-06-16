@@ -1,40 +1,55 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SlideAnimation } from '../../animations/SlideDownAnimation';
+import { FlashMessagesService } from 'angular2-flash-messages';
 import { NavbarService } from '../../services/navbar.service';
 import { AuthService } from '../../services/auth.service';
+import { User } from '../../interfaces/User';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  animations: [SlideAnimation]
 })
 export class RegisterComponent implements OnInit {
   isResident: boolean = false;
   background: string = '../../../assets/img/register.jpg';
-  user = {
-    name: '',
-    email: '',
-    username: '',
-    password: '',
-    mobile: '',
-    isResident: this.isResident,
-    nationalID: ''
-  }
+  user : User;
 
   constructor(
-    public Navbar: NavbarService,
-    public authService: AuthService
-  ) { }
+    public authService: AuthService,
+    public flashMessagesService:FlashMessagesService,
+    public router: Router,
+  ) {
+    this.user = {
+      name: null,
+      email: null,
+      username: null,
+      password: null,
+      mobile: null,
+      isResident: null,
+      nationalID: null,
+      role: 'user'
+    }
+  }
 
   ngOnInit(){
-    this.Navbar.hide();
   }
 
   rbtCheck(){
     this.isResident = !this.isResident;
   }
 
-  register(){
-    this.authService.resigter(this.user).subscribe(res => console.log(res));
+
+  register({value,valid}){
+    if (valid) {
+      this.authService.resigter(value).subscribe(res => console.log(res));
+    }
+    else {
+      this.flashMessagesService.show('Please enter valid information', {cssClass:'alert-danger', timeout: 4000});
+      this.router.navigate(['register']);
+    }
   }
 
 }

@@ -10,7 +10,7 @@ module.exports = function(Test) {
 
     Test.filter = function(id, cb){
         Test.find({ "type" : id }, function(err, test){
-            cb(err, test)
+            cb(err, res)
         })
     }
 

@@ -3,10 +3,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { MapService } from './services/map.service';
 import { AuthService } from './services/auth.service';
 import { NavbarService } from './services/navbar.service';
+import { AuthGuard } from './guards/auth.guard';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -20,11 +23,13 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 
 const appRoutes: Routes = [
-  {path:'', component:HomeComponent},
-  {path:'map', component:MapComponent},
-  {path:'transportation', component:BusComponent},
-  {path:'login', component:LoginComponent},
-  {path:'register', component:RegisterComponent}
+  { path: '', component: HomeComponent },
+  { path: 'map', component: MapComponent },
+  { path: 'services/transportation', component: BusComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'report', component: ReportsComponent, canActivate: [AuthGuard] },
+  { path: 'request', component: RequestsComponent, canActivate: [AuthGuard] }
 ]
 
 @NgModule({
@@ -44,12 +49,15 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     HttpModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    FlashMessagesModule
   ],
   providers: [
     MapService,
     AuthService,
-    NavbarService
+    NavbarService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

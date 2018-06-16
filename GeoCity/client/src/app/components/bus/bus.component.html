@@ -1,29 +1,110 @@
-
-<div class="col-12 col-md-8 col-lg-4">
-  <div class="container">
-    <!-- <div class="img"> -->
-    <!-- <ion-range-slider type="double" [min]="1" [max]="2" [step]="step" [from]="https://www.google.com.eg/search?rlz=1C1JZAP_enEG766EG766&biw=1707&bih=813&tbm=isch&sa=1&ei=Q1IdW7CPCIq7sQG3qI3ABw&q=streets&oq=streets&gs_l=img.3...6730.8413.0.8522.7.7.0.0.0.0.0.0..0.0....0...1c.1.64.img..7.0.0....0.Epj3mPhPSYE#imgrc=q5LCGP8bNPCjYM:" 
-    [to]="https://www.google.com.eg/search?rlz=1C1JZAP_enEG766EG766&biw=1707&bih=813&tbm=isch&sa=1&ei=Q1IdW7CPCIq7sQG3qI3ABw&q=streets&oq=streets&gs_l=img.3...6730.8413.0.8522.7.7.0.0.0.0.0.0..0.0....0...1c.1.64.img..7.0.0....0.Epj3mPhPSYE#imgdii=dVAsSTB1B9BvvM:&imgrc=q5LCGP8bNPCjYM:" (onFinish)="sliderChange($event)">
-    </ion-range-slider> -->
-    
-    <!-- </div> -->
-
+<div class="container-fluid">
+    <div class="col-12">
+      <!-- <carousel>
+        <slide>
+          <img [src]="image1" class="img-fluid col-12 image">
+        </slide>
+        <slide>
+          <img [src]="image2" class="img-fluid image">
+        </slide>
+        <slide>
+          <img [src]="image3" class="img-fluid image">
+        </slide>
+        <slide>
+          <img [src]="image4" class="img-fluid image">
+        </slide>
+      </carousel> -->
+    </div>
+  
     <!-- Book A Table Widget -->
-    <div class="book-a-table-widget mt-50">
-      <h6>Going to</h6>
-      <form action="#" method="get">
-        <p class="origin">
-          <i class="fas fa-map-pin"></i> Origin </p>
-        <div class="input-group input-group-lg">
-          <input type="text" class="form-control" aria-label="Large" placeholder="Where I am">
-        </div>
-        <p class="origin">
-          <i class="fas fa-map-pin"></i> Destination </p>
-        <div class="input-group input-group-lg">
-          <input type="text" class="form-control" placeholder="Street">
-        </div>
-        <button type="submit" class="btn pull-right btn-light btn-lg search">
-          <i class="fa fa-search pr-2" aria-hidden="true"></i> Search</button>
-      </form>
+    <div class="col-6 col-lg-4 bus">
+      <div class="book-a-table-widget mt-50">
+        <h6>Going to</h6>
+        <!-- <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)"> -->
+        <!-- <label class="origin">
+            <i class="fas fa-map-pin"></i> Origin </label>
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control placeholder" aria-label="Large" placeholder="Where I am" [(ngModel)]="user.origin" name="origin" #userOrigin="ngModel" required>
+            <div *ngIf="userOrigin.erros?.required && userOrigin.touched" class="alert alert-danger">Origin is required</div>
+          </div>
+          <br/>
+          <label class="origin">
+            <i class="fas fa-map-pin"></i> Destination </label>
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control placeholder" placeholder="Station" [(ngModel)]="user.destination" name="destination" #userDestination="ngModel" required>
+            <div *ngIf="userDestination.erros?.required && userDestination.touched" class="alert alert-danger">Destination is required</div>
+          </div> -->
+  
+        <form action="#" method="get">
+  
+          <label class="origin">
+            <i class="fas fa-map-pin"></i> Origin </label>
+          <select class="custom-select" (change)="selectChange($event)">
+            <option selected> -- Origin </option>
+            <option [value]="1">El-Sherouk first gate</option>
+            <option [value]="2">El-A'sher bus station</option>
+            <option [value]="3">El-Garage</option>
+            <option [value]="4">Alf Maskan</option>
+            <option [value]="5">Masr El-Gdida</option>
+            <option [value]="6">Hadaiq El-Qoba</option>
+            <option [value]="7">Sheraton</option>
+            <option [value]="8">Awl Makram</option>
+            <option [value]="9">Awl Abbas</option>
+            <option [value]="10">El-Abbasiya</option>
+            <option [value]="11">Ramses</option>
+            <option [value]="12">Tahrir</option>
+            <option [value]="13">Badr City</option>
+            <option [value]="14">New Heliopolis</option>
+            <option [value]="15">Gesr El-Suez</option>
+            <option [value]="16">El-Hegaz Square</option>
+            <option [value]="17">Roxy</option>
+            <option [value]="18">El-Abasya</option>
+            <option [value]="19">El-Abbasiya</option>
+            <option [value]="20">El-Geish Street</option>
+            <option [value]="21">El-Mosky</option>
+            <option [value]="22">El-Ataba</option>
+            <option [value]="23">El-Ahly Club</option>
+            <option [value]="24">Rabaa</option>
+            <option [value]="25">Ahmed Helmy</option>
+            <option [value]="26">Shoubra</option>
+            <option [value]="27">El-Sayeda Aisha</option>
+          </select>
+  
+          <label class="origin">
+            <i class="fas fa-map-pin"></i> Destination </label>
+          <select class="custom-select" (change)="selectChange($event)">
+            <option selected> -- Destination </option>
+            <option [value]="1">El-Sherouk first gate</option>
+            <option [value]="2">El-A'sher bus station</option>
+            <option [value]="3">El-Garage</option>
+            <option [value]="4">Alf Maskan</option>
+            <option [value]="5">Masr El-Gdida</option>
+            <option [value]="6">Hadaiq El-Qoba</option>
+            <option [value]="7">Sheraton</option>
+            <option [value]="8">Awl Makram</option>
+            <option [value]="9">Awl Abbas</option>
+            <option [value]="10">El-Abbasiya</option>
+            <option [value]="11">Ramses</option>
+            <option [value]="12">Tahrir</option>
+            <option [value]="13">Badr City</option>
+            <option [value]="14">New Heliopolis</option>
+            <option [value]="15">Gesr El-Suez</option>
+            <option [value]="16">El-Hegaz Square</option>
+            <option [value]="17">Roxy</option>
+            <option [value]="18">El-Abasya</option>
+            <option [value]="19">El-Abbasiya</option>
+            <option [value]="20">El-Geish Street</option>
+            <option [value]="21">El-Mosky</option>
+            <option [value]="22">El-Ataba</option>
+            <option [value]="23">El-Ahly Club</option>
+            <option [value]="24">Rabaa</option>
+            <option [value]="25">Ahmed Helmy</option>
+            <option [value]="26">Shoubra</option>
+            <option [value]="27">El-Sayeda Aisha</option>
+          </select>
+          <button type="submit" class="btn pull-right btn-light btn-lg search placeholder">
+            <i class="fa fa-search pr-2" aria-hidden="true"></i> Search</button>
+        </form>
+      </div>
     </div>
   </div>

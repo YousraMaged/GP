@@ -24,14 +24,45 @@
       }
     }
   },
-  "acls": [],
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "getRole"
+    }
+  ],
   "methods": {
     "log": {
       "accepts": [
-        {"arg": "messageId", "type": "number", "required": true},
-        {"arg": "options", "type": "object", "http": "optionsFromRequest"}
+        {
+          "arg": "messageId",
+          "type": "number",
+          "required": true
+        },
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        }
       ],
-      "http": {"verb": "POST", "path": "/log/:messageId"}
+      "http": {
+        "verb": "POST",
+        "path": "/log/:messageId"
+      }
     }
   }
 }

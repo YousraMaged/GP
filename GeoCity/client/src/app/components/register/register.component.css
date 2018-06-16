@@ -47,3 +47,16 @@ label.form-check-label
     padding: 0;
     padding-bottom: 50px;
 }
+.alert
+{
+    font-size: 13px;
+    padding: 10px;
+}
+.form-group 
+{
+    margin-bottom: 0.3rem;
+}
+.container-fluid
+{
+    height: 900px;
+}

@@ -1,39 +1,42 @@
-<div class="container " style="width:65%;">
-    <div class="col-12 card " id="form_container">
-        <form name="form" (ngSubmit)="submitRequest(f)" #f="ngForm" novalidate>
-            <div class="form-group ">
-                <h4>Choose Request</h4>
-                <p>
-                    Please choose your request below. We will get back to you at the earliest!
-                </p>
-                <select id="ddl" class="custom-select" (change)="selectChangeHandler($event)" [(ngModel)]="request.category" name="requestCategory">
-                    <option value="" selected> -- Choose Request Type </option>
-                    <option value="Parcel license">Parcel license</option>
-                    <option value="Electricity supply">Electricity supply</option>
-                    <option value="Gas supply">Gas supply</option>
-                    <option value="Telephone line">Telephone line</option>
-                </select>
+<div class="container">
+    <div class="col-8 offset-2">
+        <div class="card">
+            <div class="card-body">
+                <form name="form" (ngSubmit)="submitRequest(f)" #f="ngForm" novalidate>
+                    <div class="form-group">
+                        <p>
+                            Please choose your request below. We will get back to you at the earliest!
+                        </p>
+                        <select id="ddl" class="custom-select" (change)="selectChangeHandler($event)" [(ngModel)]="request.category" name="requestCategory">
+                            <option value="" selected> -- Choose Request Type </option>
+                            <option value="Parcel license">Parcel license</option>
+                            <option value="Electricity supply">Electricity supply</option>
+                            <option value="Gas supply">Gas supply</option>
+                            <option value="Telephone line">Telephone line</option>
+                        </select>
 
-            </div>
-            <div class="form-group" *ngIf="form_isVisible">
-                <label for="requestUserName">Name</label>
-                <input type="name" class="form-control" id="exampleInputName" placeholder="Enter Your Full Name" [(ngModel)]="request.userName"
-                    name="requestUserName">
-            </div>
-            <div class="form-group" *ngIf="form_isVisible">
-                <label for="requestUserNationalID">National ID</label>
-                <input type="number" class="form-control" id="exampleInputNID" maxlength="14" placeholder="Enter Your National ID" [(ngModel)]="request.userNationalID"
-                    name="requestUserNationalID">
-            </div>
+                    </div>
+                    <div class="form-group" *ngIf="form_isVisible">
+                        <label for="requestUserName">Name</label>
+                        <input type="name" class="form-control" id="exampleInputName" placeholder="Enter Your Full Name" [(ngModel)]="request.userName"
+                            name="requestUserName">
+                    </div>
+                    <div class="form-group" *ngIf="form_isVisible">
+                        <label for="requestUserNationalID">National ID</label>
+                        <input type="number" class="form-control" id="exampleInputNID" maxlength="14" placeholder="Enter Your National ID" [(ngModel)]="request.userNationalID"
+                            name="requestUserNationalID">
+                    </div>
 
-            <div class="form-group" *ngIf="form_isVisible">
-                <label for="requestForm"> -- Request Application Form </label>
-                <textarea class="form-control" id="exampleTextarea" rows="3" name="requestForm" [(ngModel)]="request.form"> 
+                    <div class="form-group" *ngIf="form_isVisible">
+                        <label for="requestForm"> -- Request Application Form </label>
+                        <textarea class="form-control" id="exampleTextarea" rows="3" name="requestForm" [(ngModel)]="request.form"> 
             </textarea>
 
+                    </div>
+                    <button type="submit" class=" btn btn-light btn-default pull-right" id="btn" *ngIf="form_isVisible">Send →</button>
+                </form>
             </div>
-            <button type="submit" class=" btn btn-light btn-default pull-right" id="btn" *ngIf="form_isVisible">Send →</button>
-        </form>
+        </div>
     </div>
 </div>
 

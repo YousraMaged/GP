@@ -4,26 +4,57 @@
     <div class="card-body">
       <div class="card-body">
         <h5>Step One:</h5>
-        <form name="form" (ngSubmit)="register()" #f="ngForm" novalidate>
+        <form name="form" (ngSubmit)="register(f)" #f="ngForm" novalidate>
           <div class="form-group">
-            <input type="text" class="form-control" name="name" placeholder="Your name" [(ngModel)]="user.name">
+            <input type="text" class="form-control" name="name" placeholder="Your name" [(ngModel)]="user.name" #userFullName="ngModel"
+              required minlength="10">
+          </div>
+          <div [@Animation]='state' class="alert alert-danger" *ngIf="userFullName.errors?.required && userFullName.touched">
+            Name is required
+          </div>
+          <div [@Animation]='state' class="alert alert-danger" *ngIf="userFullName.errors?.minlength && userFullName.touched">
+            Name should be at least 10 characters
           </div>
           <div class="form-group">
-            <input type="email" class="form-control" name="email" placeholder="Email" [(ngModel)]="user.email">
+            <input type="email" class="form-control" name="email" placeholder="Email" [(ngModel)]="user.email" #userEmail="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
           </div>
+          <div [@Animation]='state' class="alert alert-danger" *ngIf="userEmail.errors?.required && userEmail.touched">
+            Email Address is required
+          </div>
+          <div [@Animation]='state' class="alert alert-danger" *ngIf="userEmail.invalid && userEmail.touched && !userEmail.errors?.required">
+            Invalid Email Address
+          </div>
+          
           <h5>Step Two:</h5>
           <div class="form-group">
-            <input type="text" class="form-control" name="username" placeholder="User Name" [(ngModel)]="user.username">
+            <input type="text" class="form-control" name="username" placeholder="User Name" [(ngModel)]="user.username" #userName="ngModel" required minlength="5">
+          </div>
+          <div [@Animation]='state' class="alert alert-danger" *ngIf="userName.errors?.required && userName.touched">
+            Username is required
+          </div>
+          <div [@Animation]='state' class="alert alert-danger" *ngIf="userName.errors?.minlength && userName.touched">
+            Username should be at least 10 characters
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="user.password">
+            <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="user.password" #userPassword="ngModel">
           </div>
           <div class="form-group">
             <input type="password" class="form-control" name="password-confirm" placeholder="Confirm Password">
           </div>
+          <!-- <div ng-show="form.password-confirm.$error.match">Fields do not match!</div> -->
+          <div [@Animation]='state' class="alert alert-danger" *ngIf=" userPassword.touched">
+              Password Mismatch
+          </div>
+          
           <h5>Step Three:</h5>
           <div class="form-group">
-            <input type="number" class="form-control" name="mobile" placeholder="Mobile Number" [(ngModel)]="user.mobile">
+            <input type="number" class="form-control" name="mobile" placeholder="Mobile Number" [(ngModel)]="user.mobile" #userPhone="ngModel" pattern="^(\+?\d{1,4}[\s-])?(?!0+\s+,?$)\d{10}\s*,?$" required>
+          </div>
+          <div [@Animation]='state' class="alert alert-danger" *ngIf=" userPhone.invalid && userPhone.touched && !userPhone.errors?.required">
+              Invalid Phone number
+          </div>
+          <div [@Animation]='state' class="alert alert-danger" *ngIf=" userPhone.errors?.required && userPhone.touched">
+              Phone number is required
           </div>
           <div class="form-group">
               <h6>Are you a resident of Al-Shorook City?</h6>
@@ -38,8 +69,14 @@
               </label>
             </div>
           </div>
-          <div *ngIf="isResident" id="rbt" class="form-group">
-              <input type="number" class="form-control" name="nationalID" placeholder="National ID" [(ngModel)]="user.nationalID">
+          <div id="rbt" class="form-group">
+              <input [@Animation]='state' *ngIf="isResident" type="number" class="form-control" name="nationalID" placeholder="National ID" [(ngModel)]="user.nationalID" #userNationalID="ngModel" pattern="(2|3)[0-9][1-9][0-1][1-9][0-3][1-9](01|02|03|04|11|12|13|14|15|16|17|18|19|21|22|23|24|25|26|27|28|29|31|32|33|34|35|88)\d\d\d\d\d">
+            </div>
+            <!-- <div class="alert alert-danger" *ngIf=" isResident && userNationalID.invalid && userNationalID.touched">
+                Invalid National ID
+            </div> -->
+            <div id="flash">
+                <flash-messages></flash-messages>
             </div>
           <button type="submit" class="btn">Submit</button>
         </form>

@@ -2,14 +2,17 @@
 
 module.exports = function (Client) {
 
-    Client.log = function (messageId, options) {
-        const Message = this.app.models.Message;
-        return Message.findById(messageId, null, options).
-            then(msg => {
-                const token = options && options.accessToken;
-                const userId = token && token.userId;
-                const user = userId ? 'user#' + userId : '<anonymous>';
-                console.log('(%s) %s', user, msg.text);
-    })
-}
+    Client.remoteMethod("getRole", {
+        http: { path: "/getRole", verb: 'GET' },
+        accepts: { arg: 'id', type: 'string' },
+        returns: { arg: 'user', type: 'Object' }
+    });
+
+    Client.getRole = function(id, cb){
+        Client.find({ "id" : id }, function(err, res){
+            console.log(err);
+            console.log(res);
+            cb(err, res)
+        })
+    }
 };

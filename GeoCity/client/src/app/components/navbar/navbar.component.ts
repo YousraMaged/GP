@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { NavbarService } from '../../services/navbar.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,16 +10,18 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   isLoggedIn: boolean = false;
+  visible: boolean = true;
   userRole: string = 'user';
 
   constructor(
     public authService:AuthService,
-    public navbar:NavbarService,
     public router: Router
-  ) { }
+  ) { 
+  }
 
   ngOnInit() {
     this.isLoggedIn = this.authService.isLoggedIn();
+    this.visible = !window.location.href.includes('register');
     console.log('Logged in: ' + this.authService.isLoggedIn());
     console.log(localStorage.getItem('token'));
   }
