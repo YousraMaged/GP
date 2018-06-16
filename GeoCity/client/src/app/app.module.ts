@@ -24,7 +24,7 @@ import { RegisterComponent } from './components/register/register.component';
 
 
 const appRoutes: Routes = [
-  {path:'', component:HomeComponent},
+  {path:'/', component:HomeComponent},
   {path:'map', component:MapComponent},
   {path:'transportation', component:BusComponent},
   {path:'payment', component:PaymentComponent},
