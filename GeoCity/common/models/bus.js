@@ -5,17 +5,19 @@ module.exports = function (Bus) {
     Bus.remoteMethod("path", {
         http: { path: "/path", verb: "get" },
         accepts: [{ arg: "origin", type: "string" }, { arg: "destination", type: "string" }],
-        returns: [{ arg: "Stations", type: "object" }, { arg: "Bus Number", type: "string"}]
+        returns: [{ arg: "Stations", type: "object" }, { arg: "number", type: "string"}]
     });
 
     Bus.path = function (origin, destination, cb) {
         console.log("Remote method working");
-        Bus.find({fields: { Stations: true }}, function (err, bus) {
-            cb(err, bus);
-            bus.filter({"where":{ "and":[{ "origin": {"inq": "Stations"}}, { "destination": {"inq": "Stations"}}] }}, function (err, bus) {
-                cb(err, bus);
+        Bus.find({fields: { Stations: true, number: true }}, function (bus, err) {
+            cb(bus, err);
+            // console.log(bus);
+            // bus.find({where:{ and:[{ origin: {inq: Stations}}, { destination: {inq: Stations}}] }}, function (err, bus) {
+            //     cb(bus, err);
+                
             
-            });
+            // });
 
            
 
