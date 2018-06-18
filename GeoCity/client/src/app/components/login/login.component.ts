@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { SlideAnimation } from '../../animations/SlideDownAnimation';
 import { AuthService } from '../../services/auth.service';
 import { NavbarService } from '../../services/navbar.service';
@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
     public authService:AuthService,
     public Navbar:NavbarService,
     public router: Router,
+    public route: ActivatedRoute,
     public flashMessagesService:FlashMessagesService
   ) { 
     this.user = {
@@ -37,17 +38,15 @@ export class LoginComponent implements OnInit {
   login({value,valid})
   {
     if(valid){
+      this.flashMessagesService.show(`You're now logged in`, {cssClass:'alert-success', timeout: 4000});
       this.authService.login(value).subscribe(res => {
-        console.log(res);
-        console.log(localStorage.getItem('token'));
-        console.log(localStorage.getItem('userID'));
-        this.flashMessagesService.show(`You're now logged in`, {cssClass:'alert-success', timeout: 4000});
-        this.router.navigate(['login']);
-        this.router.navigate(['/login']);
+        let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+        this.router.navigate([returnUrl || '/']);
       });
     }
     else
     {
+      this.flashMessagesService.show(`Incorrect username or Password`, {cssClass:'alert-danger', timeout: 4000});
     }
   }
 

@@ -1,4 +1,4 @@
-<!-- <nav *ngIf="visible" class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #0F1626 !important;">
+<nav *ngIf="visible && userRole == 'user'" class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #0F1626 !important;">
   <a class="navbar-brand col-2" routerLink="/">GeoCity</a>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav mr-auto">
@@ -38,9 +38,9 @@
       </li>
     </ul>
   </div>
-</nav> -->
+</nav>
 
-<nav *ngIf="visible" class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #0F1626 !important;">
+<nav *ngIf="visible && userRole == 'employee'" class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #0F1626 !important;">
   <a class="navbar-brand col-2" href="#">GeoCity</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
     aria-expanded="false" aria-label="Toggle navigation">

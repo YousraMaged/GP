@@ -5,13 +5,14 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { MapService } from './services/map.service';
 import { AuthService } from './services/auth.service';
 import { NavbarService } from './services/navbar.service';
 import { BusService } from './services/bus.service'
 import { AuthGuard } from './guards/auth.guard';
-import { FlashMessagesModule } from 'angular2-flash-messages';
+import { EmpGuard } from './guards/emp.auth';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -27,7 +28,7 @@ import { ParcelinfoComponent } from './components/parcelinfo/parcelinfo.componen
 import { PaymentComponent } from './components/payment/payment.component';
 
 const appRoutes: Routes = [
-  { path: '/', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'map', component: MapComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -66,8 +67,9 @@ const appRoutes: Routes = [
     MapService,
     AuthService,
     NavbarService,
+    BusService,
     AuthGuard,
-    BusService
+    EmpGuard
   ],
   bootstrap: [AppComponent]
 })

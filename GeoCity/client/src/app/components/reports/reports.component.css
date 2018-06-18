@@ -84,3 +84,6 @@ label small
 {
     transition: all 600ms ease;
 }
+#validation{
+    margin-top: 5px;
+}

@@ -69,12 +69,12 @@
               </label>
             </div>
           </div>
-          <div id="rbt" class="form-group">
-              <input [@Animation]='state' *ngIf="isResident" type="number" class="form-control" name="nationalID" placeholder="National ID" [(ngModel)]="user.nationalID" #userNationalID="ngModel" pattern="(2|3)[0-9][1-9][0-1][1-9][0-3][1-9](01|02|03|04|11|12|13|14|15|16|17|18|19|21|22|23|24|25|26|27|28|29|31|32|33|34|35|88)\d\d\d\d\d">
+          <div id="rbt" class="form-group" *ngIf="isResident">
+              <input type="number" class="form-control" name="nationalID" #userNationalID="ngModel" placeholder="National ID" [(ngModel)]="user.nationalID" pattern="(2|3)[0-9][1-9][0-1][1-9][0-3][1-9](01|02|03|04|11|12|13|14|15|16|17|18|19|21|22|23|24|25|26|27|28|29|31|32|33|34|35|88)\d\d\d\d\d">
+              <div [@Animation]='state' id="validation" class="alert alert-danger" *ngIf="userNationalID.invalid && userNationalID.touched">
+                  Invalid National ID
+              </div>
             </div>
-            <!-- <div class="alert alert-danger" *ngIf=" isResident && userNationalID.invalid && userNationalID.touched">
-                Invalid National ID
-            </div> -->
             <div id="flash">
                 <flash-messages></flash-messages>
             </div>

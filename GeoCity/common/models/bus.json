@@ -10,7 +10,7 @@
       "type": "string",
       "required": true
     },
-    "Path": {
+    "Stations": {
       "type": [
         "string"
       ],
@@ -25,13 +25,6 @@
   },
   "validations": [],
   "relations": {},
-  "acls": [
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "$everyone",
-      "permission": "ALLOW"
-    }
-  ],
+  "acls": [],
   "methods": {}
 }

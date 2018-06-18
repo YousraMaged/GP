@@ -18,11 +18,11 @@
   },
   "AccessToken": {
     "dataSource": "db",
-    "public": true
+    "public": false
   },
   "ACL": {
     "dataSource": "db",
-    "public": true
+    "public": false
   },
   "RoleMapping": {
     "dataSource": "db",
@@ -33,7 +33,7 @@
   },
   "Role": {
     "dataSource": "db",
-    "public": true
+    "public": false
   },
   "Parcel": {
     "dataSource": "db",

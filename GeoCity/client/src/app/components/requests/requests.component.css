@@ -13,3 +13,8 @@
 {
     background-color: #35456b;
 }
+.alert
+{
+    font-size: 13px;
+    padding: 10px;
+}

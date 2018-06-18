@@ -8,10 +8,9 @@ module.exports = function (Client) {
         returns: { arg: 'user', type: 'Object' }
     });
 
-    Client.getRole = function(id, cb){
-        Client.find({ "id" : id }, function(err, res){
-            console.log(err);
-            console.log(res);
+    Client.getRole = function (id, cb) {
+        Client.findById(id, { fields: { role: 'true' } }, function (err, res) {
+            //console.log(res.role);
             cb(err, res)
         })
     }
