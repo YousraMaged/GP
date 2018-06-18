@@ -16,102 +16,101 @@
     </carousel>
   </div>
 
-  <!-- Book A Table Widget -->
   <div class="col-6 col-lg-4 bus">
     <div class="book-a-table-widget mt-50">
       <h6>Going to</h6>
-      <!-- <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)"> -->
-      <!-- <label class="origin">
-          <i class="fas fa-map-pin"></i> Origin </label>
-        <div class="input-group input-group-lg">
-          <input type="text" class="form-control placeholder" aria-label="Large" placeholder="Where I am" [(ngModel)]="user.origin" name="origin" #userOrigin="ngModel" required>
-          <div *ngIf="userOrigin.erros?.required && userOrigin.touched" class="alert alert-danger">Origin is required</div>
-        </div>
-        <br/>
-        <label class="origin">
-          <i class="fas fa-map-pin"></i> Destination </label>
-        <div class="input-group input-group-lg">
-          <input type="text" class="form-control placeholder" placeholder="Station" [(ngModel)]="user.destination" name="destination" #userDestination="ngModel" required>
-          <div *ngIf="userDestination.erros?.required && userDestination.touched" class="alert alert-danger">Destination is required</div>
-        </div> -->
 
-      <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <form novalidate #f="ngForm" (ngSubmit)="submitBus(f)">
         <div class="form-group">
           <label class="origin">
             <i class="fas fa-map-pin"></i> Origin </label>
-          <select class="custom-select form-control" (change)="selectChange($event)" name="origin" [(ngModel)]="user.origin" #userOrigin="ngModel" required>
-            <option value="select" > -- Where I am </option>
-            <option *ngFor="let origin of origins" [value]="origin.name">{{origin.name}}</option>
-            <!-- <option>El-A'sher bus station</option>
-            <option>El-Garage</option>
-            <option>Alf Maskan</option>
-            <option>Masr El-Gdida</option>
-            <option>Hadaiq El-Qoba</option>
-            <option>Sheraton</option>
-            <option>Awl Makram</option>
-            <option>Awl Abbas</option>
-            <option>El-Abbasiya</option>
-            <option>Ramses</option>
-            <option>Tahrir</option>
-            <option>Badr City</option>
-            <option>New Heliopolis</option>
-            <option>Gesr El-Suez</option>
-            <option>El-Hegaz Square</option>
-            <option>Roxy</option>
-            <option>El-Abasya</option>
-            <option>El-Abbasiya</option>
-            <option>El-Geish Street</option>
-            <option>El-Mosky</option>
-            <option>El-Ataba</option>
-            <option>El-Ahly Club</option>
-            <option>Rabaa</option>
-            <option>Ahmed Helmy</option>
-            <option>Shoubra</option>
-            <option>El-Sayeda Aisha</option> -->
+          <select class="custom-select" name="origin" [(ngModel)]="user.origin" #userOrigin="ngModel" required>
+            <option value="" class="option"> -- Where I am </option>
+            <option value="AhmedHelmy" class="option">Ahmed Helmy</option>
+            <option value="AlfMaskan" class="option">Alf Maskan</option>
+            <option value="AwlAbbas">Awl Abbas</option>
+            <option value="AwlMakram">Awl Makram</option>
+            <option value="BadrCity">Badr City</option>
+            <option value="El-A'sherbusstation">El-A'sher bus station</option>
+            <option value="El-Abbasiya">El-Abbasiya</option>
+            <option value="El-AhlyClub">El-Ahly Club</option>
+            <option value="El-Ataba">El-Ataba</option>
+            <option value="El-Garage">El-Garage</option>
+            <option value="El-GeishStreet">El-Geish Street</option>
+            <option value="El-HegazSquare">El-Hegaz Square</option>
+            <option value="El-Mosky">El-Mosky</option>
+            <option value="El-SayedaAisha">El-Sayeda Aisha</option>
+            <option value="El-Sheroukfirstgate">El-Sherouk first gate</option>
+            <option value="GesrEl-Suez">Gesr El-Suez</option>
+            <option value="HadaiqEl-Qoba">Hadaiq El-Qoba</option>
+            <option value="MasrEl-Gdida">Masr El-Gdida</option>
+            <option value="NewHeliopolis">New Heliopolis</option>
+            <option value="Rabaa">Rabaa</option>
+            <option value="Ramses">Ramses</option>
+            <option value="Roxy">Roxy</option>
+            <option value="Sheraton">Sheraton</option>
+            <option value="Shoubra">Shoubra</option>
+            <option value="Tahrir">Tahrir</option>
           </select>
-          <span class="help-block" *ngIf="userOrigin.erros?.required && userOrigin.touched">Origin is required</span>
+          <div class="alert alert-danger" *ngIf="userOrigin.value == 0 && userOrigin.touched">Origin is required</div>
         </div>
 
         <div class="form-group">
           <label class="origin">
             <i class="fas fa-map-pin"></i> Destination </label>
-          <select class="custom-select" (change)="selectChange($event)">
-            <option selected [(ngModel)]="user.destination" name="destination" #userDestination="ngModel" required> -- Station </option>
-            <option>El-Sherouk first gate</option>
-            <option>El-A'sher bus station</option>
-            <option>El-Garage</option>
-            <option>Alf Maskan</option>
-            <option>Masr El-Gdida</option>
-            <option>Hadaiq El-Qoba</option>
-            <option>Sheraton</option>
-            <option>Awl Makram</option>
-            <option>Awl Abbas</option>
-            <option>El-Abbasiya</option>
-            <option>Ramses</option>
-            <option>Tahrir</option>
-            <option>Badr City</option>
-            <option>New Heliopolis</option>
-            <option>Gesr El-Suez</option>
-            <option>El-Hegaz Square</option>
-            <option>Roxy</option>
-            <option>El-Abasya</option>
-            <option>El-Abbasiya</option>
-            <option>El-Geish Street</option>
-            <option>El-Mosky</option>
-            <option>El-Ataba</option>
-            <option>El-Ahly Club</option>
-            <option>Rabaa</option>
-            <option>Ahmed Helmy</option>
-            <option>Shoubra</option>
-            <option>El-Sayeda Aisha</option>
+          <select class="custom-select" [(ngModel)]="user.destination" name="destination" #userDestination="ngModel" required>
+            <option value=""> -- Station </option>
+            <option value="AhmedHelmy">Ahmed Helmy</option>
+            <option value="AlfMaskan">Alf Maskan</option>
+            <option value="AwlAbbas">Awl Abbas</option>
+            <option value="AwlMakram">Awl Makram</option>
+            <option value="BadrCity">Badr City</option>
+            <option value="El-A'sherbusstation">El-A'sher bus station</option>
+            <option value="El-Abbasiya">El-Abbasiya</option>
+            <option value="El-AhlyClub">El-Ahly Club</option>
+            <option value="El-Ataba">El-Ataba</option>
+            <option value="El-Garage">El-Garage</option>
+            <option value="El-GeishStreet">El-Geish Street</option>
+            <option value="El-HegazSquare">El-Hegaz Square</option>
+            <option value="El-Mosky">El-Mosky</option>
+            <option value="El-SayedaAisha">El-Sayeda Aisha</option>
+            <option value="El-Sheroukfirstgate">El-Sherouk first gate</option>
+            <option value="GesrEl-Suez">Gesr El-Suez</option>
+            <option value="HadaiqEl-Qoba">Hadaiq El-Qoba</option>
+            <option value="MasrEl-Gdida">Masr El-Gdida</option>
+            <option value="NewHeliopolis">New Heliopolis</option>
+            <option value="Rabaa">Rabaa</option>
+            <option value="Ramses">Ramses</option>
+            <option value="Roxy">Roxy</option>
+            <option value="Sheraton">Sheraton</option>
+            <option value="Shoubra">Shoubra</option>
+            <option value="Tahrir">Tahrir</option>
           </select>
-          <div *ngIf="userDestination.erros?.required && userDestination.touched" class="alert alert-danger">Destination is required</div>
+          <div class="alert alert-danger" *ngIf="userDestination.value == 0 && userDestination.touched">Destination is required</div>
+        </div>
+        <div id="flash">
+          <flash-messages></flash-messages>
         </div>
         <div>
-          <button type="submit" class="btn pull-right btn-light btn-lg search placeholder">
+          <button type="submit" class="btn pull-right btn-light btn-lg search placeholder" (click)="toggle_info()">
             <i class="fa fa-search pr-2" aria-hidden="true"></i> Search</button>
         </div>
       </form>
     </div>
+  </div>
+  <div *ngIf="info" class="col-4 right info">
+    <div>
+      <div class="single-listing-menu" ngFor="let number of busNumber">
+        <h6>{{ number }}</h6>
+        <div *ngFor="let station of Stations; let i = index">
+          <ul>
+            <li *ngFor="let stop of station.stops; let j = index">{{ stop }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-8 left">
+    <div id="map"></div>
   </div>
 </div>

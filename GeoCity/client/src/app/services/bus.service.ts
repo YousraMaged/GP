@@ -8,8 +8,8 @@ export class BusService {
     constructor(public http:Http){
     }
 
-    getRoute(){
-        return this.http.get('http://localhost:3000/api/Buses').map(res => res );
+    getpath(origin, destination){
+        return this.http.get('http://localhost:3000/api/Buses/path?origin='+origin+'&destination='+destination+'').map(res => res );
     }
 
 

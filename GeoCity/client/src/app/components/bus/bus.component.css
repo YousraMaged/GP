@@ -70,6 +70,13 @@
     padding: 0 30px;
 }
 
+.alert
+{
+    font-size: 13px;
+    padding: 10px;
+    margin-top: -15px;
+}
+
 .search{
     background-color: white;
     margin-top: 22px;
@@ -77,3 +84,34 @@
     margin-left: 4px;
 }
 
+.single-listing-menu {
+    background-color: #fbf9ff;
+    padding: 20px 40px;
+    margin-bottom: 5px;
+}
+
+.single-listing-menu:nth-child(odd) {
+    background-color: #f3edff;
+}
+
+.option:hover{
+    background-color: red;
+}
+
+#map{
+    height: 500px;
+    margin: 10px;
+}
+
+.right{
+    float: right;
+}
+
+.left{
+    float: left;
+}
+
+.info{
+    padding-right: 10px;
+    margin-top: 10px;
+}
