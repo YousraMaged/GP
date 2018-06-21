@@ -47,7 +47,6 @@ export class AuthService {
         return this.http.post('http://localhost:3000/api/Clients', user)
             .map(res => {
                 res.json();
-                console.log(res.json());
             })
     }
 
@@ -63,5 +62,14 @@ export class AuthService {
             return true;
         }
         return false;
+    }
+
+    getLoggedInUser() {
+        if (localStorage.getItem('userID') !== null){
+            return this.http.get('http://localhost:3000/api/Clients/'+ localStorage.getItem('userID') +'?access_token=' + localStorage.getItem('token'))
+            .map(res => {
+                return res.json();
+            })
+        }
     }
 }
