@@ -1,3 +1,9 @@
+<div *ngIf="hasReport" class="row alert alert-danger alert-dismissible fade show notification" role="alert">
+  You have {{reportsCount}} pending &nbsp;<a href="#" class="alert-link">report(s)</a>.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 <div class="row">
   <div class="col-6">
     <h5 style="margin-left: 35px;">1. Select location: </h5>
@@ -16,7 +22,7 @@
       <div>
         <div class="card">
           <div class="card-body">
-            <select class="custom-select" name="category" [(ngModel)]="report.category" #category="ngModel" required>
+            <select class="custom-select" name="category" [(ngModel)]="report.Category" #category="ngModel" required>
               <option value=""> -- Choose report category </option>
               <option value="Sewage">Sewage</option>
               <option value="Electricity">Electricity</option>
@@ -28,19 +34,22 @@
             <br>
             <br>
             <div [@Animation]='state' class="alert alert-danger" *ngIf=" category.value == 0 && category.touched">
-                Problem category is required
+              Problem category is required
             </div>
             <div>
               <div class="form-group">
-              <label for="description">Describe the problem in your words  <small>*</small></label>
-              <textarea type="text" class="form-control" id="description" name="description" [(ngModel)]="report.description" rows="6" #description="ngModel" required minlength="20"></textarea>
-            </div>
-            <div [@Animation]='state' class="alert alert-danger" *ngIf=" description.errors?.required && description.touched">
+                <label for="description">Describe the problem in your words
+                  <small>*</small>
+                </label>
+                <textarea type="text" class="form-control" id="description" name="description" [(ngModel)]="report.Description" rows="6"
+                  #description="ngModel" required minlength="20"></textarea>
+              </div>
+              <div [@Animation]='state' class="alert alert-danger" *ngIf=" description.errors?.required && description.touched">
                 Problem description is required
-            </div>
-            <div [@Animation]='state' class="alert alert-danger" *ngIf=" description.errors?.minlength && description.touched">
+              </div>
+              <div [@Animation]='state' class="alert alert-danger" *ngIf=" description.errors?.minlength && description.touched">
                 Problem description should be at least 20 characters
-            </div>
+              </div>
             </div>
           </div>
         </div>
@@ -55,9 +64,10 @@
             </div>
             <div [@Animation]='state' *ngIf="report.notify" class="form-group">
               <label for="email"> Email address to be notified </label>
-              <input type="email" class="form-control" id="email" name="email" [(ngModel)]="report.email" #email="ngModel"  pattern="^(\+?\d{1,4}[\s-])?(?!0+\s+,?$)\d{10}\s*,?$" required>
+              <input type="email" class="form-control" id="email" name="email" [(ngModel)]="report.email" #email="ngModel" pattern="^(\+?\d{1,4}[\s-])?(?!0+\s+,?$)\d{10}\s*,?$"
+                required>
               <div [@Animation]='state' id="validation" class="alert alert-danger" *ngIf="email.invalid && email.errors?.required && email.touched">
-                  Invalid Email Address
+                Invalid Email Address
               </div>
             </div>
             <div id="flash">

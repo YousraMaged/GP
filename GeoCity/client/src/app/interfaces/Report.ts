@@ -1,12 +1,15 @@
 export interface Report {
     notify: boolean,
-    category: string,
-    description: string,
+    Category: string,
+    Description: string,
     clientId: string,
     email: string,
-    date: Date,
-    location: {
+    Date: Date,
+    Location: {
         "lat": number,
         "lng": number
-    }
+    },
+    Number: number,
+    clientName: string,
+    status: string
 }

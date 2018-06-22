@@ -2,10 +2,12 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/map';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class AuthService {
-
+onLogininChange = new Subject<boolean>();
+onٌRoleChange = new Subject<string>();
     constructor(
         public http: Http,
         public router: Router
@@ -41,7 +43,7 @@ export class AuthService {
         } else {
             this.router.navigate(['/login']);
         }
-}
+    }
 
     resigter(user) {
         return this.http.post('http://localhost:3000/api/Clients', user)
@@ -50,9 +52,10 @@ export class AuthService {
             })
     }
 
-    getRole(id) {
+    getRole() {
         return this.http.get('http://localhost:3000/api/Clients/getRole?id=' + localStorage.getItem('userID'))
             .map(res => {
+                console.log(res.json().user.role);
                 return res.json();
             })
     }
@@ -65,11 +68,11 @@ export class AuthService {
     }
 
     getLoggedInUser() {
-        if (localStorage.getItem('userID') !== null){
-            return this.http.get('http://localhost:3000/api/Clients/'+ localStorage.getItem('userID') +'?access_token=' + localStorage.getItem('token'))
-            .map(res => {
-                return res.json();
-            })
+        if (localStorage.getItem('userID') !== null) {
+            return this.http.get('http://localhost:3000/api/Clients/' + localStorage.getItem('userID') + '?access_token=' + localStorage.getItem('token'))
+                .map(res => {
+                    return res.json();
+                })
         }
     }
 }

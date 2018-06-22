@@ -1,0 +1,89 @@
+html,body{
+    height: 100%;
+}
+.container-fluid{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#map {
+    height: 591px;
+    padding: 0;
+    margin: 0;
+}
+#map-container
+{
+    padding: 0;
+    margin: 0 !important;
+    position: relative;
+    height: 100%;
+}
+#close{
+    text-align: right;
+    font-size: 20px;
+    color: white;
+}
+#close:hover
+{
+    color: 	rgba(132,219,255,0.7);
+    cursor: pointer;
+}
+#bottom-menu{
+    position: absolute !important;
+    bottom: 0px;
+    min-height: 200px;
+    z-index: 1300;
+    color: white;
+    padding: 0px 25px;
+}
+aside, nav, nav ul
+{
+    background-color: #F2EEE2 !important;
+}
+aside
+{
+    height: 591px;
+}
+nav, aside
+{
+    padding: 5px !important;
+}
+#searchinput
+{
+    width: 100% !important;
+}
+#exampleCheck1
+{
+    width: 10% !important;
+}
+label
+{
+    color: #0F1626 !important;
+}
+.list-group-item
+{
+    background-color: transparent !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 0;
+    padding-right: 0;
+}
+ul{
+    list-style: none;
+    color: white;
+    padding-left: 10px;
+}
+ul li{
+    line-height: 30px;
+}
+font{
+    font-weight: 500 !important;
+    font-size: 17px;
+}
+.emoji-inner {
+    width: 20px !important;
+    height: 20px !important;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-bottom: 4px;
+}

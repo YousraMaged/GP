@@ -26,6 +26,10 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ParcelinfoComponent } from './components/parcelinfo/parcelinfo.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { DmMapComponent } from './components/dm/dm-map/dm-map.component';
+import { DmReportsComponent } from './components/dm/dm-reports/dm-reports.component';
+import { DmRequestsComponent } from './components/dm/dm-requests/dm-requests.component';
+import { ReportsService } from './services/reports.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -36,7 +40,10 @@ const appRoutes: Routes = [
   { path: 'request', component: RequestsComponent, canActivate: [AuthGuard] },
   { path: 'services/transportation', component: BusComponent },
   { path: 'services/payment', component: PaymentComponent, canActivate: [AuthGuard] },
-  { path: 'services/parcelinfo', component: ParcelinfoComponent, canActivate: [AuthGuard] }  
+  { path: 'services/parcelinfo', component: ParcelinfoComponent, canActivate: [AuthGuard] },
+  { path: 'dm/map', component: DmMapComponent, canActivate: [AuthGuard,EmpGuard] },
+  { path: 'dm/requests', component: DmRequestsComponent, canActivate: [AuthGuard,EmpGuard] },
+  { path: 'dm/reports', component: DmReportsComponent, canActivate: [AuthGuard,EmpGuard] }
 ]
 
 @NgModule({
@@ -52,7 +59,10 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     ParcelinfoComponent,
-    PaymentComponent
+    PaymentComponent,
+    DmMapComponent,
+    DmReportsComponent,
+    DmRequestsComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +79,8 @@ const appRoutes: Routes = [
     NavbarService,
     BusService,
     AuthGuard,
-    EmpGuard
+    EmpGuard,
+    ReportsService
   ],
   bootstrap: [AppComponent]
 })

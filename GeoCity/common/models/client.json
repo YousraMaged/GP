@@ -22,6 +22,14 @@
       "options": {
         "nestRemoting": true
       }
+    },
+    "reports": {
+      "type": "hasMany",
+      "model": "Report",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
     }
   },
   "acls": [

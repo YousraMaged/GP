@@ -1,0 +1,63 @@
+<div class="container-fluid">
+    <div class="row">
+        <aside class="col-2 bg-dark shadow p-4 bg-white">
+            <nav class="navbar navbar-expand navbar-dark bg-dark">
+                <div class="collapse navbar-collapse">
+                    <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between list-group list-group-flush">
+                        <li class="nav-item">
+                            <form class="form-inline">
+                                <input class="form-control" id="searchinput" type="search" placeholder="Search" aria-label="Search">
+                                <br>
+                                <br>
+                                <br>
+                            </form>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Filter</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Filter</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Filter</label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+        <div class="col-10" id="map-container">
+            <div id="map"></div>
+            <div class="navbar-dark bg-dark col-12" id="bottom-menu" *ngIf="toggleBottomMenu == 'show'">
+                <div class="row">
+                    <p class="col-10" style="padding-top: 3px; font-size: 21px;">
+                        <i id="menuTitle">&#x2139;</i> Report Details</p>
+                    <p class="col-2" id="close" (click)="closeBottomMenu()"> &times; </p>
+                </div>
+                <ul>
+                    <li>
+                        <font size="4">ID: </font>#{{ ReportInfo.Number }}.</li>
+                    <li>
+                    <li>
+                        <font size="4">Category: </font>{{ ReportInfo.category }}.</li>
+                    <li>
+                        <font size="4">Reported by: </font> {{ ReportInfo.clientName }}.</li>
+                    <li>
+                        <font size="4">Description: </font>{{ ReportInfo.description }}.</li>
+                    <li>
+                        <font size="4">Date: </font>{{ ReportInfo.date | date:'EEEE, MMMM d, y h:mm:ss a' }}.</li>
+                    <li>
+                        <font size="4">Status: </font>{{ ReportInfo.status }}.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

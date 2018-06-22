@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
-import 'rxjs/add/operator/map';
+import { CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from '../services/auth.service'
+import 'rxjs/add/operator/map';
 @Injectable()
 export class EmpGuard implements CanActivate {
     constructor(
@@ -9,10 +9,10 @@ export class EmpGuard implements CanActivate {
         public authService:AuthService
     ){}
 
-    canActivate(){
+    canActivate(route, state: RouterStateSnapshot){
         let authenticated = this.authService.isEmployee();
         if (!authenticated){
-            this.router.navigate(['/login']);
+            this.router.navigate(['/'],{ queryParams: { returnUrl: state.url }});
             return false;
         }
         return true;
