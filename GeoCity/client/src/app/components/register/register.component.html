@@ -36,14 +36,16 @@
             Username should be at least 10 characters
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="user.password" #userPassword="ngModel">
+            <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="user.password" #userPassword="ngModel" minlength="8">
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" name="password-confirm" placeholder="Confirm Password">
+              <input type="password" class="form-control" name="password-confirm" placeholder="Confirm Password" [(ngModel)]="confirmPassword" #userConfirmPassword="ngModel"(input)="passwordCheck($event)">
           </div>
-          <!-- <div ng-show="form.password-confirm.$error.match">Fields do not match!</div> -->
-          <div [@Animation]='state' class="alert alert-danger" *ngIf=" userPassword.touched">
+          <div [@Animation]='state' class="alert alert-danger" *ngIf="!valid && userConfirmPassword.touched">
               Password Mismatch
+          </div>
+          <div [@Animation]='state' class="alert alert-danger" *ngIf="!valid && (userConfirmPassword.errors?.minlength || userPassword.errors?.minlength)">
+              Password should be at least 8 characters
           </div>
           
           <h5>Step Three:</h5>

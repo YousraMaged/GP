@@ -87,3 +87,12 @@ label small
 #validation{
     margin-top: 5px;
 }
+.notification{
+    margin: 5px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    color: #000000;
+    background-color: #F2EEE2;
+    border-color: #F2EEE2;
+    font-size: 16px;
+}

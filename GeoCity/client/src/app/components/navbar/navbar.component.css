@@ -36,3 +36,6 @@ li
 {
     font-weight: bold;
 }
+font{
+    font-weight: 500 !important;
+}

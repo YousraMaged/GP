@@ -28,6 +28,10 @@ input
 .btn:hover
 {
     background-color: #35456b;
+    background-color: #05080f;
+}
+.btn:focus{
+    box-shadow: none !important;
 }
 .form-check
 {

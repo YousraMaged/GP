@@ -55,7 +55,6 @@ onٌRoleChange = new Subject<string>();
     getRole() {
         return this.http.get('http://localhost:3000/api/Clients/getRole?id=' + localStorage.getItem('userID'))
             .map(res => {
-                console.log(res.json().user.role);
                 return res.json();
             })
     }

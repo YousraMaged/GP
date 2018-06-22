@@ -14,7 +14,7 @@
           <i class="fa fa-angle-down" aria-hidden="true"></i>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" routerLink="/transportation">Transportation</a>
+          <a class="dropdown-item" routerLink="/services/transportation">Transportation</a>
           <a class="dropdown-item" routerLink="/">Payment</a>
           <a class="dropdown-item" routerLink="/">Parcel Info</a>
         </div>
@@ -49,14 +49,13 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav mr-auto">
       <li routerLinkActive="active current" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
-        <a class="nav-link" routerLink="/map">Map</a>
-      </li>
-
-      <li routerLinkActive="active current" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
-        <a class="nav-link" routerLink="/report">Report </a>
+        <a class="nav-link" routerLink="dm/map">Map</a>
       </li>
       <li routerLinkActive="active current" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
-        <a class="nav-link" routerLink="/request">Request</a>
+        <a class="nav-link" routerLink="dm/reports">Report </a>
+      </li>
+      <li routerLinkActive="active current" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
+        <a class="nav-link" routerLink="dm/requests">Request</a>
       </li>
 
     </ul>

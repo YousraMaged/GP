@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class NavbarService {
+onPageChange = new Subject<boolean>();
     visible: boolean = true;
     isLoggedIn: boolean = false;
 
@@ -16,4 +18,5 @@ export class NavbarService {
     show() {
         this.visible = true;
     }
+
 }
