@@ -13,6 +13,8 @@
     "posttest": "npm run lint && nsp check"
   },
   "dependencies": {
+    "angular-stripe": "^5.0.0",
+    "angular-stripe-checkout": "^5.1.0",
     "axios": "^0.18.0",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
@@ -31,6 +33,7 @@
     "redux": "^4.0.0",
     "rxjs": "^6.2.0",
     "serve-favicon": "^2.0.1",
+    "stripe": "^6.1.1",
     "strong-error-handler": "^2.0.0",
     "typescript": "^2.9.1"
   },

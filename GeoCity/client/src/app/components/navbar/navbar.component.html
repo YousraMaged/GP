@@ -1,5 +1,5 @@
 <nav *ngIf="visible && userRole == 'user'" class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #0F1626 !important;">
-  <a class="navbar-brand col-2" routerLink="/">GeoCity</a>
+  <a class="navbar-brand col-2" routerLink="/"><img  [src]="Image"></a>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav mr-auto">
       <li routerLinkActive="active current" [routerLinkActiveOptions]="{exact: true}">
@@ -15,8 +15,9 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" routerLink="/services/transportation">Transportation</a>
-          <a class="dropdown-item" routerLink="/">Payment</a>
-          <a class="dropdown-item" routerLink="/">Parcel Info</a>
+          <a class="dropdown-item" routerLink="/services/routing">Routing</a>
+          <a class="dropdown-item" routerLink="/services/payment">Payment</a>
+          <a class="dropdown-item" routerLink="services/parcelinfo">Parcel Info</a>
         </div>
       </li>
       <li routerLinkActive="active current" [routerLinkActiveOptions]="{exact: true}" class="nav-item">

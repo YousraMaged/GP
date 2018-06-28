@@ -3,16 +3,33 @@
     padding: 0;
 }
 
+.container-fluid{
+    height: 675px; 
+    overflow: hidden
+}
+
 .image{
     position: relative;
-    height: 550px;
+    height: 665px;
     width: 100%;
-    background-position: center center;
+    background-position: center;
+}
+
+#map 
+{
+    height: 350px;
+    margin: 10px;
+}
+
+#map1
+{
+    height: 317px;
+    margin: 0px 10px 10px 10px;
 }
 
 .bus{
     position: absolute;
-    top: 107px;
+    top: 150px;
     left: 50px;
 }
 
@@ -28,6 +45,7 @@
 .placeholder{
     font-size: 14px;
 }
+
 .dorne-btn {
     min-width: 160px;
     height: 52px;
@@ -85,22 +103,28 @@
 }
 
 .single-listing-menu {
-    background-color: #fbf9ff;
+    background-color: #304150 !important;
+    color: white;
     padding: 20px 40px;
-    margin-bottom: 5px;
+    margin: 10px;
+    margin-bottom: 0px;
+    width: 725px;
+    height: 315px;
 }
 
 .single-listing-menu:nth-child(odd) {
     background-color: #f3edff;
+    height: 350px;
+    margin-top: 0px;
+    width: 725px;
 }
 
-.option:hover{
-    background-color: red;
+h6{
+    font-size: 20px;
 }
 
-#map{
-    height: 500px;
-    margin: 10px;
+li{
+    list-style: none;
 }
 
 .right{
@@ -115,3 +139,20 @@
     padding-right: 10px;
     margin-top: 10px;
 }
+
+.card
+{
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    background-color: transparent;
+    margin-top: 10px;
+}
+

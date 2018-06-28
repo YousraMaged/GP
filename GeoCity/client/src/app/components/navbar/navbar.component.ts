@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+  Image: any = "../../../assets/img/Logo.png";
   isLoggedIn: boolean = this.authService.isLoggedIn();
   visible: boolean = true;
   userRole: string = localStorage.getItem('role') || 'user';

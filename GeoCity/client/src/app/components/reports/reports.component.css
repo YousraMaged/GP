@@ -88,11 +88,21 @@ label small
     margin-top: 5px;
 }
 .notification{
-    margin: 5px;
+    margin: 12px 6px 0px 5px;
     padding: 15px 20px;
     border-radius: 10px;
     color: #000000;
     background-color: #F2EEE2;
     border-color: #F2EEE2;
     font-size: 16px;
+}
+.modal-title{
+    margin: 0px;
+}
+
+#modal{
+    margin-bottom: 50px;
+}
+.modal-content{
+    height: 250px important;
 }

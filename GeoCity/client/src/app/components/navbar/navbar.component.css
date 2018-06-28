@@ -1,6 +1,8 @@
-.navbar-brand
+.navbar-brand img
 {
-    font-size: 28px;
+    width: 90px;
+    height: 47px;
+    margin-right: 85px;
 }
 li
 {
@@ -35,6 +37,7 @@ li
 .active.current
 {
     font-weight: bold;
+    border-bottom: 2px solid #b4dbc0;
 }
 font{
     font-weight: 500 !important;

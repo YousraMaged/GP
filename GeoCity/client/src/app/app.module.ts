@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { FlashMessagesModule } from 'angular2-flash-messages';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { MapService } from './services/map.service';
 import { AuthService } from './services/auth.service';
@@ -13,6 +14,8 @@ import { NavbarService } from './services/navbar.service';
 import { BusService } from './services/bus.service'
 import { AuthGuard } from './guards/auth.guard';
 import { EmpGuard } from './guards/emp.auth';
+import { ReportsService } from './services/reports.service';
+import { RequestService } from './services/request.service';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -25,11 +28,9 @@ import { BusComponent } from './components/bus/bus.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ParcelinfoComponent } from './components/parcelinfo/parcelinfo.component';
-import { PaymentComponent } from './components/payment/payment.component';
 import { DmMapComponent } from './components/dm/dm-map/dm-map.component';
 import { DmReportsComponent } from './components/dm/dm-reports/dm-reports.component';
 import { DmRequestsComponent } from './components/dm/dm-requests/dm-requests.component';
-import { ReportsService } from './services/reports.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,7 +40,6 @@ const appRoutes: Routes = [
   { path: 'report', component: ReportsComponent, canActivate: [AuthGuard] },
   { path: 'request', component: RequestsComponent, canActivate: [AuthGuard] },
   { path: 'services/transportation', component: BusComponent },
-  { path: 'services/payment', component: PaymentComponent, canActivate: [AuthGuard] },
   { path: 'services/parcelinfo', component: ParcelinfoComponent, canActivate: [AuthGuard] },
   { path: 'dm/map', component: DmMapComponent, canActivate: [AuthGuard,EmpGuard] },
   { path: 'dm/requests', component: DmRequestsComponent, canActivate: [AuthGuard,EmpGuard] },
@@ -59,7 +59,6 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     ParcelinfoComponent,
-    PaymentComponent,
     DmMapComponent,
     DmReportsComponent,
     DmRequestsComponent,
@@ -71,7 +70,8 @@ const appRoutes: Routes = [
     FormsModule,
     BrowserAnimationsModule,
     FlashMessagesModule,
-    CarouselModule
+    CarouselModule,
+    NgxPaginationModule
   ],
   providers: [
     MapService,
@@ -80,7 +80,8 @@ const appRoutes: Routes = [
     BusService,
     AuthGuard,
     EmpGuard,
-    ReportsService
+    ReportsService,
+    RequestService
   ],
   bootstrap: [AppComponent]
 })

@@ -6,13 +6,29 @@
     "validateUpsert": true
   },
   "properties": {
-    "Type": {
-      "type": "string",
-      "required": true
+    "Number": {
+      "type": "number"
     },
-    "Details": {
-      "type": "object",
-      "required": true
+    "Type": {
+      "type": "string"
+    },
+    "Location": {
+      "type": "object"
+    },
+    "Date": {
+      "type": "date"
+    },
+    "parcelId": {
+      "type": "number"
+    },
+    "clientId": {
+      "type": "string"
+    },
+    "userName": {
+      "type": "string"
+    },
+    "nationalID": {
+      "type": "number"
     }
   },
   "validations": [],

@@ -1,36 +1,47 @@
-<div class="container-fluid h-100">
-    <div class="row h-100">
-        <aside class="col-2 bg-dark shadow p-4 mb-4 bg-white">
-            <nav class="navbar navbar-expand navbar-dark bg-dark">
-                <div class="collapse navbar-collapse">
-                    <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between list-group list-group-flush">
-                        <li class="nav-item">
-                            <form class="form-inline">
-                                <input class="form-control" id="searchinput" type="search" placeholder="Search" aria-label="Search">
-                                <br>
-                                <br>
-                                <br>                            
-                            </form>
-                        </li>
-                        <li class="list-group-item">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">Information</label>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">Irregularities</label>
-                                </div>
-                            </li>
-                        
-                    </ul>
-                </div>
-            </nav>
+<div class="container-fluid">
+    <div class="row">
+        <aside class="">
         </aside>
-        <main class="col-10">
+        <main id="mapArea" class="col-12">
             <div id="map"></div>
+            <div id="loading" *ngIf="isLoading">
+                <i class="fas fa-spinner fa-spin"></i>
+            </div>
+            <div class="navbar-dark bg-dark col-12" id="bottom-menu" *ngIf="toggleBottomMenu == 'show'">
+                <div class="row">
+                    <p class="col-10" style="padding-top: 3px; font-size: 21px;">
+                        <i id="menuTitle">&#x2139;</i> Request Details</p>
+                    <p class="col-2" id="close" (click)="closeBottomMenu()"> &times; </p>
+                </div>
+                <ul>
+                    <li>
+                        <font size="4">Parcel ID: </font>{{ parcelinfo.ID }}.
+                    </li>
+                    <li>
+                        <font size="4">Landuse: </font>{{ parcelinfo.Usage }}.
+                    </li>
+                    <div *ngIf="this.parcelinfo.Violations == '0'">
+                        <li>
+                            <font size="4"> Violation Type: </font> {{ parcelinfo.Vio_Type }}.
+                        </li>
+                        <li>
+                            <font size="4"> Violation: </font>{{ parcelinfo.Violations }}.
+                        </li>
+                    </div>
+                    <br>
+                    <h5>Available Utilities</h5>
+                    <li *ngIf="parcelinfo.Water">Water.</li>
+                    <li *ngIf="parcelinfo.Gas">Gas.</li>
+                    <li *ngIf="parcelinfo.Electric">Electricity.</li>
+                    <li *ngIf="parcelinfo.Telephone">Telephone.</li>
+                    <br>
+                    <h5>License Status</h5>
+                    <li *ngIf="parcelinfo.License">Licensed.</li>
+                    <li *ngIf="!parcelinfo.License">Not Licensed.</li>
+                </ul>
+            </div>
         </main>
     </div>
-    </div>
+</div>
+<div>
+</div>

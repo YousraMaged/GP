@@ -9,16 +9,20 @@ import { AuthService } from '../../services/auth.service';
 import * as leaflet from 'leaflet';
 import { User } from '../../interfaces/User';
 
+
 @Component({
   selector: 'app-reports',
   templateUrl: './reports.component.html',
   styleUrls: ['./reports.component.css'],
-  animations: [SlideAnimation]
+  animations: [SlideAnimation],
+  
 })
 export class ReportsComponent implements OnInit {
-
+  p: number = 1;
   public Map: any;
   public BaseMap: any;
+  public Reports: Array<Report>;
+  public ReportInfo;
   public markerIcon = require('leaflet/dist/images/marker-icon.png');
   public markerShadow = require('leaflet/dist/images/marker-shadow.png');
   private defaultIcon = leaflet.icon({
@@ -37,6 +41,18 @@ export class ReportsComponent implements OnInit {
     public reportService: ReportsService,
     public authService: AuthService
   ) {
+  //   for (let i = 0; i <= this.Reports.length; i++){
+  //     this.Reports.push(ReportsService.arguments);
+  // }
+    this.Reports = [];
+    this.ReportInfo = {
+      category:'',
+      userName:'',
+      description:'',
+      date:'',
+      status:'Pending',
+      Number: null,
+    },
     this.report = {
       notify: false,
       Category: '',
@@ -52,6 +68,7 @@ export class ReportsComponent implements OnInit {
       clientName: null,
       status: 'Pending',
     }
+    
   }
 
   ngOnInit() {
@@ -60,7 +77,7 @@ export class ReportsComponent implements OnInit {
     this.BaseMap = leaflet.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(this.Map);
     this.Map.on('click', (e) => {
       this.report.Location.lat = e.latlng.lat;
-      this.report.Location.lng = e.latlng.lng;
+      this.report.Location.lng = e.latlng.lng;        
 
       if (this.marker != undefined) {
         this.Map.removeLayer(this.marker);
@@ -73,45 +90,58 @@ export class ReportsComponent implements OnInit {
       this.report.email = res.email;
     });
 
-    this.checkReports();
-  }
+    this.reportService.getUserReports().subscribe(res => {
+      this.Reports = res.json();
+      console.log(this.Reports);
+      console.log(this.Reports.length);
+      for (let i = 0; i < this.Reports.length; i++) {
+        let popup = leaflet.popup()
+          .setContent(`<h2> ${this.Reports[i].Category} </h2>`)
+          this.ReportInfo.category = this.Reports[i].Category;
+          this.ReportInfo.description = this.Reports[i].Description;
+          this.ReportInfo.date = this.Reports[i].Date;
+          this.ReportInfo.clientName = this.Reports[i].clientName;
+          this.ReportInfo.Number = this.Reports[i].Number;
+       
+      }});
 
+    this.checkReports();
+   
+      
+  }
   toggle_notify() {
     this.report.notify = !this.report.notify;
     //this.state = (this.state === 'hide' ? 'show' : 'hide');
   }
 
   submitReport({ value, valid }) {
-    if (valid) {
+    if (valid && this.report.Location.lat !== null && this.report.Location.lng !== null) {
       this.report.clientId = localStorage.getItem('userID');
       this.report.Date = new Date(Date.now());
+      this.report.Number = Math.floor((Math.random() * 1000000) + 9999999);
       console.log(this.report);
       this.reportService.addReport(this.report).subscribe(res => res);
+      this.flashMessagesService.show('Complaint Submitted, We will keep you updated!', { cssClass: 'alert-success', timeout: 4000 });
+      this.router.navigate(['/report']);
     }
     else {
       this.flashMessagesService.show('Please enter valid information', { cssClass: 'alert-danger', timeout: 4000 });
-      this.router.navigate(['report']);
+      this.router.navigate(['/report']);
     }
-    window.location.reload();
   }
 
   checkReports() {
     this.reportService.getReportsCount().subscribe(res => {
       this.reportsCount = res.json().count;
-      this.hasReport = true;
       if (this.reportsCount > 0) {
         this.reportService.getUserReports().subscribe(res => {
-          return;
+          this.hasReport = true;
+          return true;
         })
       }
+      console.log(this.reportsCount);
+      return false;
     });
   }
-
-  
-  test(){
-    this.router.navigate([this.router.url]);
-    
-  }
-
 }
 

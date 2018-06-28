@@ -13,8 +13,22 @@
 {
     background-color: #35456b;
 }
+.btn.btn-default[disabled] {
+    background-color: gainsboro;
+}
 .alert
 {
     font-size: 13px;
     padding: 10px;
+}
+.form-check-label {
+    padding-left: 0.1rem;
+    margin-bottom: 0;
+}
+.form-check-input {
+    margin-top: 7px;
+}
+.form-check-label
+{
+    font-size: 14px !important;
 }

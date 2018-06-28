@@ -12,7 +12,7 @@ export class EmpGuard implements CanActivate {
     canActivate(route, state: RouterStateSnapshot){
         let authenticated = this.authService.isEmployee();
         if (!authenticated){
-            this.router.navigate(['/'],{ queryParams: { returnUrl: state.url }});
+            this.router.navigate(['login'],{ queryParams: { returnUrl: state.url }});
             return false;
         }
         return true;

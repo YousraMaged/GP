@@ -42,16 +42,16 @@ export class LoginComponent implements OnInit {
   }
 
   login({ value, valid }) {
+    let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
     if (valid) {
-      //this.flashMessagesService.show(`You're now logged in`, { cssClass: 'alert-success', timeout: 4000 });
+      this.flashMessagesService.show(`You're now logged in`, { cssClass: 'alert-success', timeout: 4000 });
       this.authService.login(value).subscribe(res => {
         this.authService.onLogininChange.next(true);
-        let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
-        this.router.navigate([returnUrl || '/']);
       }, err => err, () => {
         this.authService.getRole().subscribe(resp => localStorage.setItem('role',resp.user.role), error => error,() => {
           console.log(localStorage.getItem('role'));
           this.authService.onٌRoleChange.next(localStorage.getItem('role'));
+          this.router.navigate([returnUrl || '/']);
         } )
       })
     }

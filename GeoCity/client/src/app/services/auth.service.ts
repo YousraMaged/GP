@@ -59,6 +59,13 @@ onٌRoleChange = new Subject<string>();
             })
     }
 
+    getNationalID(){
+        return this.http.get('http://localhost:3000/api/Clients/getNationalID?id=' + localStorage.getItem('userID'))
+        .map(res => {
+            return res.json();
+        })
+    }
+
     isEmployee() {
         if (localStorage.getItem('role') === 'Employee'.toLowerCase()) {
             return true;

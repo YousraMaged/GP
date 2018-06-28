@@ -1,5 +1,45 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Complaint Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul *ngFor="let item of Reports | paginate: { itemsPerPage: 1, currentPage: p }">
+          <li>
+            <font size="4">ID: </font>{{ item.Number }}.
+          </li>
+          <li>
+            <font size="4">Category: </font>{{ item.Category }}.
+          </li>
+          <li>
+            <font size="4">Reported by: </font> {{ item.clientName }}.
+          </li>
+          <li>
+            <font size="4">Description: </font>{{ item.Description }}.
+          </li>
+          <li>
+            <font size="4">Date: </font>{{ item.Date | date:'EEEE, MMMM d, y h:mm:ss a' }}.
+          </li>
+          <li>
+            <font size="4">Status: </font>{{ item.status }}.
+          </li>
+        </ul>
+
+        <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <div *ngIf="hasReport" class="row alert alert-danger alert-dismissible fade show notification" role="alert">
-  You have {{reportsCount}} pending &nbsp;<a href="#" class="alert-link">report(s)</a>.
+  You have {{reportsCount}} pending &nbsp;
+  <a data-toggle="modal" href="#exampleModalCenter" class="alert-link">report(s)</a>.
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>

@@ -61,6 +61,9 @@
     position: relative;
     z-index: 9;
 }
+.catagory-content i {
+    font-size: 90px !important;
+}
 
 .single-catagory-area {
     background-color: #304150;
@@ -128,7 +131,8 @@ a:active {
   }
   
   .recent-work-wrap img{
-    width: 100%;
+    width: 380px;
+    height: 288px
   }
   
   .recent-work-wrap .recent-work-inner{
@@ -138,10 +142,12 @@ a:active {
     width: 100%;
     border-radius: 0;
     margin-bottom: 0;
+    color: white;
   }
   
   .recent-work-wrap .recent-work-inner h3{
     margin: 10px 0;
+    
   }
   
   .recent-work-wrap .recent-work-inner h3 a{
@@ -182,15 +188,15 @@ a:active {
     opacity: 1;
   }
 
-  .lead
+  .hero-content
   {
       margin-top: 16%;
   }
 
-  .lead h2 {
+  .hero-content h2 {
       font-size: 80px;
   }
 
-  .lead h4 {
+  .hero-content h4 {
       font-size: 25px;
   }
