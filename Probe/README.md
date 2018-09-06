@@ -15,7 +15,7 @@ email:test@test.com
 password:test
 
 To login as a Decision Maker
-email:ahme@test.com
+email:ahmed@test.com
 password:test
 
 N.B: Some of the maps may not load correctly because the data is hosted on a local server.
