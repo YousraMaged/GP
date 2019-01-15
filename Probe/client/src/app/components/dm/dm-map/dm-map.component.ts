@@ -81,6 +81,7 @@ export class DmMapComponent implements OnInit {
     this.isLoading = true;
 
     this.mapService.getParcels(this.min_lng, this.min_lat, this.max_lng, this.max_lat).subscribe(res => {
+      console.log(res);
       if (this.geoJsonLayer) {
         this.Map.removeLayer(this.geoJsonLayer);
       }
@@ -173,7 +174,7 @@ export class DmMapComponent implements OnInit {
       }).addTo(this.Map);
       if (result !== undefined){
         console.log(x);
-        this.Map.fitBounds(x.getBounds());
+        // this.Map.fitBounds(x.getBounds());
       }
     })
   }

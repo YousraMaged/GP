@@ -4,9 +4,9 @@
     "port": 37770,
     "url": "mongodb://dbadmin:dbadmin@ds237770.mlab.com:37770/geocity-dev",
     "database": "geocity-dev",
-    "password": "dbadmin",
+    "password": "Yoko0542",
     "name": "db",
-    "user": "dbadmin",
+    "user": "admin",
     "connector": "mongodb"
   }
 }
